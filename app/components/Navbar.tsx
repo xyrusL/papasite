@@ -62,10 +62,10 @@ export default function Navbar() {
                     exit={{ opacity: 0, height: 0 }}
                 >
                     <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/95 border-b border-gray-800">
-                        {["Home", "Services", "Trust", "Contact"].map((item) => (
+                        {["Home", "Services", "Trust", "Music", "Contact"].map((item) => (
                             <a
                                 key={item}
-                                href={`#${item.toLowerCase() === "home" ? "hero" : item.toLowerCase()}`}
+                                href={item === "Music" ? "/music" : `#${item.toLowerCase() === "home" ? "hero" : item.toLowerCase()}`}
                                 onClick={() => setIsOpen(false)}
                                 className="block px-3 py-4 rounded-md text-xl font-bold hover:bg-gray-800 hover:text-yellow-400 transition"
                             >
