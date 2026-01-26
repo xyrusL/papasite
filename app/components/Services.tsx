@@ -2,11 +2,27 @@ import React from "react";
 import Image from "next/image";
 import * as motion from "framer-motion/client";
 
-const serviceImages = [
-    "/images/619405803_1208356021493146_5655100997124603175_n.jpg",
-    "/images/619902468_1208356041493144_8069110875108435667_n.jpg",
-    "/images/620024429_1208356091493139_7249783648022275541_n.jpg",
-    "/images/621477002_1208356148159800_3772941405531254889_n.jpg",
+const services = [
+    {
+        title: "TV Repair",
+        desc: "Expert repair for LED, LCD, and Smart TVs. We fix panel issues, no power, sound problems, and connectivity errors.",
+        image: "/images/tv-repair.jpg"
+    },
+    {
+        title: "Electric Fan & Appliances",
+        desc: "Motor rewinding and repair for stand fans, desk fans, and other small home appliances to extend their lifespan.",
+        image: "/images/fan-repair.jpg"
+    },
+    {
+        title: "Audio Systems",
+        desc: "Restoration of amplifiers, speakers, and home theater systems. We ensure your sound quality is crisp and clear.",
+        image: "/images/audio-repair.jpg"
+    },
+    {
+        title: "Component Level Repair",
+        desc: "Advanced troubleshooting for circuit boards (PCB). We replace faulty capacitors, resistors, and chips professionally.",
+        image: "/images/pcb-repair.jpg"
+    }
 ];
 
 const container = {
@@ -14,66 +30,72 @@ const container = {
     show: {
         opacity: 1,
         transition: {
-            staggerChildren: 0.2
+            staggerChildren: 0.15
         }
     }
 };
 
 const item = {
-    hidden: { opacity: 0, y: 20 },
+    hidden: { opacity: 0, y: 30 },
     show: { opacity: 1, y: 0 }
 };
 
 export default function Services() {
     return (
-        <section id="services" className="py-24 bg-black text-white">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="text-center mb-16">
+        <section id="services" className="py-24 bg-black text-white px-4 sm:px-6 lg:px-8">
+            <div className="max-w-7xl mx-auto">
+                <div className="text-center mb-20 max-w-3xl mx-auto">
                     <motion.h2
-                        className="text-4xl sm:text-5xl font-bold text-yellow-500 mb-4 tracking-tight"
+                        className="text-4xl sm:text-5xl font-bold text-yellow-500 mb-6 tracking-tight font-display"
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.6 }}
                     >
-                        Our Latest Repairs
+                        Our Expertise
                     </motion.h2>
                     <motion.p
-                        className="text-gray-400 text-lg sm:text-xl"
+                        className="text-gray-400 text-lg sm:text-xl leading-relaxed"
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.3, duration: 0.6 }}
+                        transition={{ delay: 0.2, duration: 0.6 }}
                     >
-                        Quality repair works. Check niyo gawa namin!
+                        At <strong>Papa's Electronic Repair Shop</strong>, we provide comprehensive repair solutions for a wide range of devices.
+                        From troubleshooting complex <strong>Smart TV</strong> failures to maintaining everyday <strong>electric fans</strong>,
+                        our experienced technicians in <strong>Quezon City</strong> use precision tools to ensure quality results.
+                        We believe in honest service—<em>pag kaya pangayusin, aayusin natin!</em>
                     </motion.p>
                 </div>
 
                 <motion.div
-                    className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+                    className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 lg:gap-10"
                     variants={container}
                     initial="hidden"
                     whileInView="show"
-                    viewport={{ once: true, margin: "-100px" }}
+                    viewport={{ once: true, margin: "-50px" }}
                 >
-                    {serviceImages.map((src, index) => (
+                    {services.map((service, index) => (
                         <motion.div
                             key={index}
-                            className="relative group overflow-hidden rounded-2xl aspect-[4/5] border border-gray-800 shadow-lg"
+                            className="bg-white/5 backdrop-blur-sm rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 hover:border-yellow-500/30 transition-all duration-500 group flex flex-col md:flex-row h-auto md:h-64"
                             variants={item}
                         >
-                            <Image
-                                src={src}
-                                alt={`Repair Work ${index + 1}`}
-                                fill
-                                style={{ objectFit: "cover" }}
-                                className="transition duration-700 group-hover:scale-110"
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition duration-300 flex items-end p-6">
-                                <div>
-                                    <span className="block text-yellow-400 font-bold text-lg mb-1">Repair Success</span>
-                                    <span className="text-gray-300 text-sm">Click to view details</span>
-                                </div>
+                            <div className="relative w-full md:w-2/5 h-40 sm:h-48 md:h-full overflow-hidden">
+                                <Image
+                                    src={service.image}
+                                    alt={`${service.title} - Papa's Electronic Repair Shop`}
+                                    fill
+                                    style={{ objectFit: "cover" }}
+                                    className="group-hover:scale-110 transition duration-700 filter brightness-75 group-hover:brightness-100"
+                                />
+                            </div>
+
+                            <div className="p-5 sm:p-8 md:w-3/5 flex flex-col justify-center">
+                                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 font-display group-hover:text-yellow-400 transition">{service.title}</h3>
+                                <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
+                                    {service.desc}
+                                </p>
                             </div>
                         </motion.div>
                     ))}

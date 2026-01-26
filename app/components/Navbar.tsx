@@ -9,7 +9,7 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="fixed w-full z-50 bg-black/80 backdrop-blur-md border-b border-white/10 text-white font-display">
+        <nav className="fixed w-full z-50 bg-neutral-900/60 backdrop-blur-xl border-b border-white/5 text-white font-display shadow-lg supports-[backdrop-filter]:bg-neutral-900/30">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     <motion.div
@@ -30,10 +30,10 @@ export default function Navbar() {
                             animate={{ opacity: 1, x: 0 }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                         >
-                            {["Home", "Services", "Trust", "Contact"].map((item) => (
+                            {["Home", "Services", "Trust", "Music", "Contact"].map((item) => (
                                 <a
                                     key={item}
-                                    href={`#${item.toLowerCase() === "home" ? "hero" : item.toLowerCase()}`}
+                                    href={item === "Music" ? "/music" : `#${item.toLowerCase() === "home" ? "hero" : item.toLowerCase()}`}
                                     className="hover:text-yellow-400 px-3 py-2 rounded-md text-lg font-medium transition duration-300 relative group"
                                 >
                                     {item}

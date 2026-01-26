@@ -51,15 +51,22 @@ export default function Footer() {
                     </motion.div>
                 </div>
 
-                <motion.div
-                    className="mt-8 pt-6 border-t border-gray-800 text-center text-xs"
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
-                >
-                    &copy; {new Date().getFullYear()} Papa's Electronic Repair Shop. All rights reserved.
-                </motion.div>
             </div>
+
+            <motion.div
+                className="mt-8 pt-6 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center text-xs text-gray-500 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
+                initial={{ opacity: 0 }}
+                whileInView={{ opacity: 1 }}
+                viewport={{ once: true }}
+            >
+                <div className="mb-2 sm:mb-0">
+                    &copy; {new Date().getFullYear()} Papa's Electronic Repair Shop. All rights reserved.
+                </div>
+                <div className="flex gap-4">
+                    <a href="/privacy" className="hover:text-yellow-500 transition">Privacy Policy</a>
+                    <a href="/terms" className="hover:text-yellow-500 transition">Terms of Service</a>
+                </div>
+            </motion.div>
         </footer>
     );
 }
