@@ -5,12 +5,12 @@ import * as motion from "framer-motion/client";
 const services = [
     {
         title: "TV Repair",
-        desc: "Expert repair for LED, LCD, and Smart TVs. We fix panel issues, no power, sound problems, and connectivity errors.",
+        desc: "Dalubhasa sa LED, LCD, at Smart TV. Kami ang bahala sa fluctuating power, walang display, o lines sa screen. TV repair specialist na mapagkakatiwalaan.",
         image: "/images/tv-repair.jpg"
     },
     {
-        title: "Electric Fan & Appliances",
-        desc: "Motor rewinding and repair for stand fans, desk fans, and other small home appliances to extend their lifespan.",
+        title: "Electric Fans & Electronic Appliances",
+        desc: "Motor rewinding and repair for stand fans, desk fans, and other electronic appliances to extend their lifespan.",
         image: "/images/fan-repair.jpg"
     },
     {
@@ -64,7 +64,7 @@ export default function Services() {
                         At <strong>Papa's Electronic Repair Shop</strong>, we provide comprehensive repair solutions for a wide range of devices.
                         From troubleshooting complex <strong>Smart TV</strong> failures to maintaining everyday <strong>electric fans</strong>,
                         our experienced technicians in <strong>Quezon City</strong> use precision tools to ensure quality results.
-                        We believe in honest service—<em>pag kaya pangayusin, aayusin natin!</em>
+                        We believe in honest service -- <em>pag kaya pangayusin, aayusin natin!</em>
                     </motion.p>
                 </div>
 

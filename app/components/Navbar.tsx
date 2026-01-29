@@ -20,7 +20,7 @@ export default function Navbar() {
                     >
                         <div className="flex-shrink-0 text-yellow-500 font-bold text-2xl flex items-center gap-2 tracking-wide">
                             <FontAwesomeIcon icon={faWrench} />
-                            <span>Papa's Repair</span>
+                            <span>Papa's Electronic Repair Shop</span>
                         </div>
                     </motion.div>
                     <div className="hidden md:block">

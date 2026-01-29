@@ -47,6 +47,9 @@ export default function Hero() {
                         <span className="block">Papa's Electronic</span>
                         <span className="block">Repair Shop</span>
                     </h1>
+                    <p className="text-lg sm:text-2xl text-gray-200 font-light tracking-wide">
+                        Trusted TV & Appliance Repair sa QC at Rizal. Home Service Available!
+                    </p>
                 </motion.div>
 
                 <motion.div

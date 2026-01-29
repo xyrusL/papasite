@@ -14,11 +14,20 @@ const rajdhani = Rajdhani({
 
 export const metadata: Metadata = {
   title: {
-    default: "Papa's Electronic Repair Shop | Trusted in QC & Rizal",
+    default: "TV Repair & Electronics Specialist | Papa's Repair Shop QC",
     template: "%s | Papa's Electronic Repair Shop",
   },
-  description: "Trusted electronic repair service in Quezon City and Rizal since 2021. Expert repair for TVs, Electric Fans, and other appliances. Call 0977-607-4426.",
+  description: "Naghahanap ng TV repair shop? Trusted sa Quezon City at Rizal. Expert sa LED, Smart TV, at Electric Fans. Tawag na sa 0977-607-4426!",
   keywords: [
+    "TV Repair Shop near me",
+    "TV Repair Quezon City",
+    "Pagawaan ng TV",
+    "Broken TV Screen Repair",
+    "Home Service TV Repair",
+    "Saan may gumagawa ng TV malapit sa akin",
+    "Mura na pagawaan ng TV",
+    "Authorized TV repair center QC",
+    "Sira ang TV may power pero walang display",
     "Electronic Repair",
     "TV Repair",
     "Appliance Repair",
@@ -34,14 +43,18 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_PH",
     url: "https://papas-repair.vercel.app/",
-    title: "Papa's Electronic Repair Shop | Trusted Service",
-    description: "Expert electronic repair ensuring quality service in Quezon City and Rizal. Proven track record since 2021.",
+    title: "TV Repair & Electronics Specialist | Papa's Repair Shop QC",
+    description: "Naghahanap ng TV repair shop? Trusted sa Quezon City at Rizal. Expert sa LED, Smart TV, at Electric Fans.",
     siteName: "Papa's Electronic Repair Shop",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Papa's Electronic Repair Shop",
-    description: "Trusted electronic repair service in Quezon City and Rizal. Call 0977-607-4426.",
+    title: "TV Repair & Electronics Specialist | Papa's Repair Shop QC",
+    description: "Trusted TV repair sa Quezon City at Rizal. Call 0977-607-4426.",
+  },
+  icons: {
+    icon: "/icon.png",
+    apple: "/apple-icon.png",
   },
   robots: {
     index: true,
