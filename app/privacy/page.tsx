@@ -5,7 +5,7 @@ import { faShieldHalved, faUserLock, faEnvelope, faArrowLeft, faDatabase } from 
 
 export default function PrivacyPolicy() {
     return (
-        <main className="bg-black min-h-screen text-gray-300 py-32 px-4 sm:px-6 lg:px-8 font-sans relative overflow-hidden">
+        <main className="min-h-screen text-gray-300 py-32 px-4 sm:px-6 lg:px-8 font-sans relative overflow-hidden">
             {/* Background Accent */}
             <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
             <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl translate-y-1/2 translate-x-1/2"></div>
@@ -26,13 +26,13 @@ export default function PrivacyPolicy() {
                         <FontAwesomeIcon icon={faShieldHalved} className="text-black text-4xl" />
                     </motion.div>
                     <h1 className="text-5xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-4 font-display">Privacy Policy</h1>
-                    <p className="text-xl text-gray-400 max-w-2xl mx-auto">Your trust is our foundation. Here's how we protect your personal information.</p>
+                    <p className="text-xl text-gray-400 max-w-2xl mx-auto">Your trust is our foundation. Here&apos;s how we protect your personal information.</p>
                 </div>
 
-                <div className="bg-white/5 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-white/10 space-y-10 group hover:border-white/20 transition-colors duration-500">
+                <div className="glass-surface glass-surface-mid p-8 sm:p-12 rounded-3xl space-y-10 group hover:border-white/20 transition-colors duration-500">
 
                     <section className="flex gap-6 items-start">
-                        <div className="bg-white/10 p-3 rounded-lg mt-1 shrink-0">
+                        <div className="glass-surface glass-surface-soft p-3 rounded-lg mt-1 shrink-0">
                             <FontAwesomeIcon icon={faUserLock} className="text-yellow-500 text-xl" />
                         </div>
                         <div>
@@ -44,7 +44,7 @@ export default function PrivacyPolicy() {
                     </section>
 
                     <section className="flex gap-6 items-start">
-                        <div className="bg-white/10 p-3 rounded-lg mt-1 shrink-0">
+                        <div className="glass-surface glass-surface-soft p-3 rounded-lg mt-1 shrink-0">
                             <FontAwesomeIcon icon={faDatabase} className="text-blue-500 text-xl" />
                         </div>
                         <div>
@@ -56,7 +56,7 @@ export default function PrivacyPolicy() {
                     </section>
 
                     <section className="flex gap-6 items-start">
-                        <div className="bg-white/10 p-3 rounded-lg mt-1 shrink-0">
+                        <div className="glass-surface glass-surface-soft p-3 rounded-lg mt-1 shrink-0">
                             <FontAwesomeIcon icon={faEnvelope} className="text-green-500 text-xl" />
                         </div>
                         <div>
@@ -70,7 +70,7 @@ export default function PrivacyPolicy() {
                 </div>
 
                 <div className="mt-12 text-center">
-                    <Link href="/" className="inline-flex items-center gap-2 text-white hover:text-yellow-400 transition group font-bold tracking-wide text-lg px-8 py-3 rounded-full hover:bg-white/5 border border-transparent hover:border-white/10">
+                    <Link href="/" className="glass-focus glass-surface glass-surface-soft glass-pill inline-flex items-center gap-2 text-white hover:text-yellow-300 transition group font-bold tracking-wide text-lg px-8 py-3">
                         <FontAwesomeIcon icon={faArrowLeft} className="group-hover:-translate-x-1 transition-transform" />
                         Back to Home
                     </Link>

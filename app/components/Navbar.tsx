@@ -9,7 +9,7 @@ export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <nav className="fixed w-full z-50 bg-neutral-900/60 backdrop-blur-xl border-b border-white/5 text-white font-display shadow-lg supports-[backdrop-filter]:bg-neutral-900/30">
+        <nav className="fixed w-full z-50 glass-surface glass-surface-soft border-b text-white font-display">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex items-center justify-between h-20">
                     <motion.div
@@ -20,7 +20,7 @@ export default function Navbar() {
                     >
                         <div className="flex-shrink-0 text-yellow-500 font-bold text-2xl flex items-center gap-2 tracking-wide">
                             <FontAwesomeIcon icon={faWrench} />
-                            <span>Papa's Electronic Repair Shop</span>
+                            <span>Papa&apos;s Electronic Repair Shop</span>
                         </div>
                     </motion.div>
                     <div className="hidden md:block">
@@ -34,7 +34,7 @@ export default function Navbar() {
                                 <a
                                     key={item}
                                     href={item === "Music" ? "/music" : `#${item.toLowerCase() === "home" ? "hero" : item.toLowerCase()}`}
-                                    className="hover:text-yellow-400 px-3 py-2 rounded-md text-lg font-medium transition duration-300 relative group"
+                                    className="glass-focus hover:text-yellow-300 px-3 py-2 rounded-md text-lg font-medium transition duration-300 relative group"
                                 >
                                     {item}
                                     <span className="absolute inset-x-0 bottom-0 h-0.5 bg-yellow-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-left"></span>
@@ -46,7 +46,7 @@ export default function Navbar() {
                         <button
                             onClick={() => setIsOpen(!isOpen)}
                             type="button"
-                            className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none transition"
+                            className="glass-focus glass-surface glass-surface-soft inline-flex items-center justify-center p-2 rounded-md text-gray-300 hover:text-white transition"
                         >
                             <FontAwesomeIcon icon={isOpen ? faTimes : faBars} className="h-6 w-6" />
                         </button>
@@ -56,18 +56,18 @@ export default function Navbar() {
 
             {isOpen && (
                 <motion.div
-                    className="md:hidden"
+                    className="md:hidden glass-surface glass-surface-soft border-t border-white/10"
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
                     exit={{ opacity: 0, height: 0 }}
                 >
-                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-black/95 border-b border-gray-800">
+                    <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                         {["Home", "Services", "Trust", "Music", "Contact"].map((item) => (
                             <a
                                 key={item}
                                 href={item === "Music" ? "/music" : `#${item.toLowerCase() === "home" ? "hero" : item.toLowerCase()}`}
                                 onClick={() => setIsOpen(false)}
-                                className="block px-3 py-4 rounded-md text-xl font-bold hover:bg-gray-800 hover:text-yellow-400 transition"
+                                className="glass-focus block px-3 py-4 rounded-md text-xl font-bold hover:bg-white/10 hover:text-yellow-300 transition"
                             >
                                 {item}
                             </a>

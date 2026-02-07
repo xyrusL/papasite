@@ -18,7 +18,7 @@ const faqs = [
 
 export default function Faq() {
     return (
-        <section id="faq" className="py-24 bg-black text-white px-4 sm:px-6 lg:px-8">
+        <section id="faq" className="py-24 text-white px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto">
                 <motion.h2
                     className="text-4xl sm:text-5xl font-bold text-yellow-500 mb-10 text-center tracking-tight font-display"
@@ -34,7 +34,7 @@ export default function Faq() {
                     {faqs.map((faq, index) => (
                         <motion.div
                             key={index}
-                            className="rounded-2xl border border-white/10 bg-white/5 p-6 sm:p-8"
+                            className="glass-surface glass-surface-soft rounded-2xl p-6 sm:p-8"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}

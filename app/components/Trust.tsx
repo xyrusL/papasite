@@ -5,7 +5,7 @@ import * as motion from "framer-motion/client";
 
 export default function Trust() {
     return (
-        <section id="trust" className="py-24 bg-gray-900 border-t border-gray-800 text-white relative overflow-hidden">
+        <section id="trust" className="py-24 border-t border-white/10 text-white relative overflow-hidden">
             {/* Decorative background element */}
             <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
 
@@ -58,7 +58,7 @@ export default function Trust() {
                     ].map((item, index) => (
                         <motion.div
                             key={index}
-                            className="bg-gradient-to-br from-gray-900/90 to-black/90 backdrop-blur-md p-8 md:p-10 rounded-3xl border border-white/10 hover:border-yellow-500/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(234,179,8,0.15)] group relative overflow-hidden"
+                            className="glass-surface glass-surface-mid p-8 md:p-10 rounded-3xl hover:border-yellow-500/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(234,179,8,0.15)] group relative overflow-hidden"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
@@ -75,7 +75,7 @@ export default function Trust() {
                                     {item.desc}
                                 </p>
                                 {item.sub && (
-                                    <div className="border-t border-gray-800 pt-4 mt-auto">
+                                    <div className="border-t border-white/10 pt-4 mt-auto">
                                         <p className="text-sm text-gray-500 uppercase tracking-wider mb-1">Location</p>
                                         <p className="text-gray-300 font-medium">{item.sub}</p>
                                     </div>

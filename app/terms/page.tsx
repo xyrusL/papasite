@@ -5,7 +5,7 @@ import { faFileContract, faScrewdriverWrench, faMedal, faTruckFast, faArrowLeft 
 
 export default function Terms() {
     return (
-        <main className="bg-black min-h-screen text-gray-300 py-32 px-4 sm:px-6 lg:px-8 font-sans relative overflow-hidden">
+        <main className="min-h-screen text-gray-300 py-32 px-4 sm:px-6 lg:px-8 font-sans relative overflow-hidden">
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl translate-y-1/2 translate-x-1/2"></div>
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
@@ -29,10 +29,10 @@ export default function Terms() {
                     <p className="text-xl text-gray-400 max-w-2xl mx-auto">Guidelines to ensure a smooth and professional repair experience.</p>
                 </div>
 
-                <div className="bg-white/5 backdrop-blur-md p-8 sm:p-12 rounded-3xl border border-white/10 space-y-10 group hover:border-white/20 transition-colors duration-500">
+                <div className="glass-surface glass-surface-mid p-8 sm:p-12 rounded-3xl space-y-10 group hover:border-white/20 transition-colors duration-500">
 
                     <section className="flex gap-6 items-start">
-                        <div className="bg-white/10 p-3 rounded-lg mt-1 shrink-0">
+                        <div className="glass-surface glass-surface-soft p-3 rounded-lg mt-1 shrink-0">
                             <FontAwesomeIcon icon={faScrewdriverWrench} className="text-white text-xl" />
                         </div>
                         <div>
@@ -44,7 +44,7 @@ export default function Terms() {
                     </section>
 
                     <section className="flex gap-6 items-start">
-                        <div className="bg-white/10 p-3 rounded-lg mt-1 shrink-0">
+                        <div className="glass-surface glass-surface-soft p-3 rounded-lg mt-1 shrink-0">
                             <FontAwesomeIcon icon={faMedal} className="text-yellow-500 text-xl" />
                         </div>
                         <div>
@@ -56,20 +56,20 @@ export default function Terms() {
                     </section>
 
                     <section className="flex gap-6 items-start">
-                        <div className="bg-white/10 p-3 rounded-lg mt-1 shrink-0">
+                        <div className="glass-surface glass-surface-soft p-3 rounded-lg mt-1 shrink-0">
                             <FontAwesomeIcon icon={faTruckFast} className="text-red-500 text-xl" />
                         </div>
                         <div>
                             <h2 className="text-2xl font-bold text-white mb-3 font-display">Home Service</h2>
                             <p className="text-lg leading-relaxed text-gray-400">
-                                Can't bring your unit to the shop? We offer convenient <strong className="text-white">Home Service</strong> repairs within Quezon City and nearby areas. Schedule a visit and let us bring the repair shop to you!
+                                Can&apos;t bring your unit to the shop? We offer convenient <strong className="text-white">Home Service</strong> repairs within Quezon City and nearby areas. Schedule a visit and let us bring the repair shop to you!
                             </p>
                         </div>
                     </section>
                 </div>
 
                 <div className="mt-12 text-center">
-                    <Link href="/" className="inline-flex items-center gap-2 text-white hover:text-yellow-400 transition group font-bold tracking-wide text-lg px-8 py-3 rounded-full hover:bg-white/5 border border-transparent hover:border-white/10">
+                    <Link href="/" className="glass-focus glass-surface glass-surface-soft glass-pill inline-flex items-center gap-2 text-white hover:text-yellow-300 transition group font-bold tracking-wide text-lg px-8 py-3">
                         <FontAwesomeIcon icon={faArrowLeft} className="group-hover:-translate-x-1 transition-transform" />
                         Back to Home
                     </Link>

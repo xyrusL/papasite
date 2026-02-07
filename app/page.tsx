@@ -23,7 +23,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen bg-black text-white font-sans selection:bg-yellow-500/30">
+    <main className="min-h-screen text-white font-sans selection:bg-yellow-500/30">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}

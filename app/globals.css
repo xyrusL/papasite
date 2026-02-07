@@ -8,14 +8,39 @@
 }
 
 :root {
-  --background: #000000;
-  --foreground: #ededed;
+  --background: #050608;
+  --foreground: #f3f4f6;
+
+  --glass-surface-1: linear-gradient(145deg, rgb(255 255 255 / 0.14), rgb(255 255 255 / 0.04));
+  --glass-surface-2: linear-gradient(145deg, rgb(255 255 255 / 0.2), rgb(255 255 255 / 0.08));
+  --glass-surface-3: linear-gradient(145deg, rgb(255 255 255 / 0.28), rgb(255 255 255 / 0.1));
+
+  --glass-border-soft: rgb(255 255 255 / 0.14);
+  --glass-border-strong: rgb(255 255 255 / 0.26);
+
+  --glass-blur-sm: 10px;
+  --glass-blur-md: 16px;
+  --glass-blur-lg: 24px;
+
+  --glass-shadow-sm: 0 10px 30px rgb(0 0 0 / 0.2);
+  --glass-shadow-md: 0 18px 45px rgb(0 0 0 / 0.34);
+  --glass-shadow-lg: 0 28px 70px rgb(0 0 0 / 0.46);
+
+  --glass-highlight: linear-gradient(120deg, rgb(255 255 255 / 0.5), rgb(255 255 255 / 0.08) 45%, transparent 70%);
+  --glass-refraction: radial-gradient(circle at 5% 10%, rgb(255 255 255 / 0.22), transparent 45%);
+  --glass-focus-ring: 0 0 0 2px rgb(5 6 8 / 0.8), 0 0 0 4px rgb(250 204 21 / 0.72);
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: var(--font-sans);
+  min-height: 100vh;
+  background-image:
+    radial-gradient(1200px 700px at -10% -20%, rgb(234 179 8 / 0.16), transparent 55%),
+    radial-gradient(900px 520px at 110% 10%, rgb(37 99 235 / 0.12), transparent 52%),
+    linear-gradient(180deg, #080b12 0%, #040507 65%, #030406 100%);
+  background-attachment: fixed;
 }
 
 h1,
@@ -25,4 +50,80 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display);
+}
+
+.glass-shell {
+  position: relative;
+  isolation: isolate;
+}
+
+.glass-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: radial-gradient(closest-side at 15% 10%, rgb(234 179 8 / 0.12), transparent 70%);
+}
+
+.glass-surface {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--glass-border-soft);
+  backdrop-filter: blur(var(--glass-blur-md)) saturate(130%);
+  -webkit-backdrop-filter: blur(var(--glass-blur-md)) saturate(130%);
+  box-shadow: var(--glass-shadow-md);
+}
+
+.glass-surface-soft {
+  background: var(--glass-surface-1);
+  border-color: var(--glass-border-soft);
+  box-shadow: var(--glass-shadow-sm);
+}
+
+.glass-surface-mid {
+  background: var(--glass-surface-2);
+}
+
+.glass-surface-strong {
+  background: var(--glass-surface-3);
+  border-color: var(--glass-border-strong);
+  box-shadow: var(--glass-shadow-lg);
+}
+
+.glass-surface::before,
+.glass-surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.glass-surface::before {
+  background: var(--glass-refraction);
+  opacity: 0.8;
+}
+
+.glass-surface::after {
+  background: var(--glass-highlight);
+  mix-blend-mode: screen;
+  opacity: 0.24;
+}
+
+.glass-pill {
+  border-radius: 9999px;
+}
+
+.glass-focus:focus-visible,
+:where(a, button, [role="button"], input, textarea, select):focus-visible {
+  outline: none;
+  box-shadow: var(--glass-focus-ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glass-surface,
+  .glass-surface::before,
+  .glass-surface::after {
+    transition: none !important;
+  }
 }

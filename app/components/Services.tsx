@@ -42,7 +42,7 @@ const item = {
 
 export default function Services() {
     return (
-        <section id="services" className="py-24 bg-black text-white px-4 sm:px-6 lg:px-8">
+        <section id="services" className="py-24 text-white px-4 sm:px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 <div className="text-center mb-20 max-w-3xl mx-auto">
                     <motion.h2
@@ -61,7 +61,7 @@ export default function Services() {
                         viewport={{ once: true }}
                         transition={{ delay: 0.2, duration: 0.6 }}
                     >
-                        At <strong>Papa's Electronic Repair Shop</strong>, we provide comprehensive repair solutions for a wide range of devices.
+                        At <strong>Papa&apos;s Electronic Repair Shop</strong>, we provide comprehensive repair solutions for a wide range of devices.
                         From troubleshooting complex <strong>Smart TV</strong> failures to maintaining everyday <strong>electric fans</strong>,
                         our experienced technicians in <strong>Quezon City</strong> use precision tools to ensure quality results.
                         We believe in honest service -- <em>pag kaya pangayusin, aayusin natin!</em>
@@ -78,7 +78,7 @@ export default function Services() {
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
-                            className="bg-white/5 backdrop-blur-sm rounded-2xl sm:rounded-3xl overflow-hidden border border-white/10 hover:border-yellow-500/30 transition-all duration-500 group flex flex-col md:flex-row h-auto md:h-64"
+                            className="glass-surface glass-surface-soft rounded-2xl sm:rounded-3xl overflow-hidden hover:border-yellow-500/30 transition-all duration-500 group flex flex-col md:flex-row h-auto md:h-64"
                             variants={item}
                         >
                             <div className="relative w-full md:w-2/5 h-40 sm:h-48 md:h-full overflow-hidden">

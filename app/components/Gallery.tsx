@@ -28,7 +28,7 @@ const images = [
 
 export default function Gallery() {
     return (
-        <section className="py-24 bg-black relative overflow-hidden">
+        <section className="py-24 relative overflow-hidden">
             {/* Background Glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-yellow-500/5 rounded-full blur-3xl"></div>
 
@@ -52,7 +52,7 @@ export default function Gallery() {
                     {images.map((img, index) => (
                         <motion.div
                             key={index}
-                            className="relative aspect-[3/4] rounded-2xl sm:rounded-3xl overflow-hidden group border border-white/10"
+                            className="glass-surface glass-surface-soft relative aspect-[3/4] rounded-2xl sm:rounded-3xl overflow-hidden group"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
