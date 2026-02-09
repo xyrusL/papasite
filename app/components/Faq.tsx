@@ -34,7 +34,7 @@ export default function Faq() {
                     {faqs.map((faq, index) => (
                         <motion.div
                             key={index}
-                            className="glass-surface glass-surface-soft rounded-2xl p-6 sm:p-8"
+                            className="service-card glass-surface glass-surface-soft rounded-2xl p-6 sm:p-8"
                             initial={{ opacity: 0, y: 20 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
