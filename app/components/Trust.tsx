@@ -58,7 +58,7 @@ export default function Trust() {
                     ].map((item, index) => (
                         <motion.div
                             key={index}
-                            className="glass-surface glass-surface-mid p-8 md:p-10 rounded-3xl hover:border-yellow-500/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(234,179,8,0.15)] group relative overflow-hidden"
+                            className="service-card glass-surface glass-surface-mid p-8 md:p-10 rounded-3xl hover:border-yellow-500/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(234,179,8,0.15)] group relative overflow-hidden"
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
