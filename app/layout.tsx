@@ -70,6 +70,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body
+        suppressHydrationWarning
         className={`${inter.variable} ${rajdhani.variable} antialiased font-sans glass-shell`}
       >
         {children}
