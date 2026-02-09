@@ -78,7 +78,7 @@ export default function Services() {
                     {services.map((service, index) => (
                         <motion.div
                             key={index}
-                            className="glass-surface glass-surface-soft rounded-2xl sm:rounded-3xl overflow-hidden hover:border-yellow-500/30 transition-all duration-500 group flex flex-col md:flex-row h-auto md:h-64"
+                            className="service-card glass-surface glass-surface-soft rounded-2xl sm:rounded-3xl overflow-hidden hover:border-yellow-400/45 hover:shadow-[0_24px_56px_rgba(0,0,0,0.5)] transition-all duration-500 group flex flex-col md:flex-row h-auto md:h-64"
                             variants={item}
                         >
                             <div className="relative w-full md:w-2/5 h-40 sm:h-48 md:h-full overflow-hidden">
@@ -92,8 +92,8 @@ export default function Services() {
                             </div>
 
                             <div className="p-5 sm:p-8 md:w-3/5 flex flex-col justify-center">
-                                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 font-display group-hover:text-yellow-400 transition">{service.title}</h3>
-                                <p className="text-gray-400 leading-relaxed text-sm sm:text-base">
+                                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 font-display group-hover:text-yellow-300 transition">{service.title}</h3>
+                                <p className="text-gray-200/90 leading-relaxed text-sm sm:text-base">
                                     {service.desc}
                                 </p>
                             </div>
