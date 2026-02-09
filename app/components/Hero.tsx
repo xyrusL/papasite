@@ -27,12 +27,12 @@ export default function Hero() {
                     transition={{ duration: 0.8 }}
                     className="mb-8"
                 >
-                    <div className="relative w-32 h-32 sm:w-44 sm:h-44 mx-auto drop-shadow-[0_0_35px_rgba(234,179,8,0.4)] hover:scale-105 transition-transform duration-500">
+                    <div className="logo-glow relative w-32 h-32 sm:w-44 sm:h-44 mx-auto drop-shadow-[0_0_35px_rgba(234,179,8,0.4)] hover:scale-105 transition-transform duration-500">
                         <Image
                             src="/logo.png"
                             alt="Papa's Repair Shop Logo"
                             fill
-                            className="object-contain"
+                            className="object-contain rounded-full"
                             priority
                         />
                     </div>
@@ -66,18 +66,18 @@ export default function Hero() {
                 </motion.div>
 
                 <motion.div
-                    className="glass-surface glass-surface-mid p-8 sm:p-10 rounded-3xl mb-12 max-w-3xl w-full relative group"
+                    className="hero-contact-card glass-surface glass-surface-mid p-8 sm:p-10 rounded-3xl mb-12 max-w-3xl w-full relative group"
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ delay: 0.8, duration: 0.5 }}
                 >
-                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-yellow-500 to-transparent opacity-50"></div>
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-yellow-400 to-transparent opacity-55"></div>
 
-                    <p className="text-xl sm:text-2xl text-gray-100 italic mb-6 font-light leading-relaxed text-balance">
+                    <p className="text-xl sm:text-2xl text-gray-50 italic mb-6 font-light leading-relaxed text-balance">
                         &quot;Legit na serbisyo, subok na ng marami! Need repair? Tara, G!&quot;
                     </p>
 
-                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 pt-6 border-t border-white/10">
+                    <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 pt-6 border-t border-white/20">
                         <div className="flex items-center gap-2 text-yellow-500/80">
                             <span className="uppercase tracking-widest text-sm font-semibold">Contact Us</span>
                         </div>
@@ -97,7 +97,7 @@ export default function Hero() {
                         href="https://www.facebook.com/papaelectronicrepair"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="glass-focus group flex items-center gap-3 glass-surface glass-surface-mid glass-pill text-white font-bold py-4 px-10 transition-all duration-300 transform hover:scale-105 text-lg"
+                        className="glass-focus group flex w-full sm:w-auto justify-center items-center gap-3 glass-surface glass-surface-mid glass-pill text-white font-bold py-4 px-6 sm:px-10 transition-all duration-300 transform hover:scale-105 text-base sm:text-lg"
                     >
                         <FontAwesomeIcon icon={faFacebook} className="h-6 w-6" />
                         <span>Message Us on FB</span>
