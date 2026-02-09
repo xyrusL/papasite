@@ -5,6 +5,7 @@ import Faq from "./components/Faq";
 import Gallery from "./components/Gallery";
 import Trust from "./components/Trust";
 import Footer from "./components/Footer";
+import ScrollRevealSection from "./components/ScrollRevealSection";
 
 export default function Home() {
   const localBusinessSchema = {
@@ -29,12 +30,24 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
       />
       <Navbar />
-      <Hero />
-      <Services />
-      <Faq />
-      <Gallery />
-      <Trust />
-      <Footer />
+      <ScrollRevealSection>
+        <Hero />
+      </ScrollRevealSection>
+      <ScrollRevealSection>
+        <Services />
+      </ScrollRevealSection>
+      <ScrollRevealSection>
+        <Faq />
+      </ScrollRevealSection>
+      <ScrollRevealSection>
+        <Gallery />
+      </ScrollRevealSection>
+      <ScrollRevealSection>
+        <Trust />
+      </ScrollRevealSection>
+      <ScrollRevealSection>
+        <Footer />
+      </ScrollRevealSection>
     </main>
   );
 }
