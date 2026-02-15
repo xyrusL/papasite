@@ -1,0 +1,11 @@
+{
+  "files.associations": {
+    ".git/hooks/*.sample": "shellscript"
+  },
+  "search.exclude": {
+    "**/.git": true
+  },
+  "files.watcherExclude": {
+    "**/.git/**": true
+  }
+}

@@ -11,9 +11,9 @@
   --background: #050608;
   --foreground: #f3f4f6;
 
-  --glass-surface-1: linear-gradient(152deg, rgb(255 255 255 / 0.12), rgb(255 255 255 / 0.03) 46%, rgb(12 16 24 / 0.46));
-  --glass-surface-2: linear-gradient(152deg, rgb(255 255 255 / 0.16), rgb(255 255 255 / 0.05) 46%, rgb(12 16 24 / 0.52));
-  --glass-surface-3: linear-gradient(152deg, rgb(255 255 255 / 0.2), rgb(255 255 255 / 0.07) 46%, rgb(12 16 24 / 0.62));
+  --glass-surface-1: linear-gradient(152deg, rgb(255 255 255 / 0.085), rgb(255 255 255 / 0.02) 46%, rgb(10 14 22 / 0.52));
+  --glass-surface-2: linear-gradient(152deg, rgb(255 255 255 / 0.11), rgb(255 255 255 / 0.03) 46%, rgb(10 14 22 / 0.6));
+  --glass-surface-3: linear-gradient(152deg, rgb(255 255 255 / 0.14), rgb(255 255 255 / 0.045) 46%, rgb(10 14 22 / 0.68));
 
   --glass-border-soft: rgb(255 255 255 / 0.18);
   --glass-border-strong: rgb(255 255 255 / 0.3);
@@ -26,8 +26,8 @@
   --glass-shadow-md: 0 20px 48px rgb(0 0 0 / 0.38), 0 3px 14px rgb(0 0 0 / 0.24);
   --glass-shadow-lg: 0 30px 74px rgb(0 0 0 / 0.48), 0 6px 20px rgb(0 0 0 / 0.28);
 
-  --glass-highlight: linear-gradient(125deg, rgb(255 255 255 / 0.36) 0%, rgb(255 255 255 / 0.12) 28%, rgb(255 255 255 / 0.04) 44%, transparent 62%);
-  --glass-refraction: radial-gradient(130% 95% at 6% 8%, rgb(255 255 255 / 0.2), transparent 46%), radial-gradient(85% 60% at 88% 100%, rgb(250 204 21 / 0.08), transparent 70%);
+  --glass-highlight: linear-gradient(125deg, rgb(255 255 255 / 0.24) 0%, rgb(255 255 255 / 0.08) 28%, rgb(255 255 255 / 0.025) 44%, transparent 62%);
+  --glass-refraction: radial-gradient(130% 95% at 6% 8%, rgb(255 255 255 / 0.15), transparent 46%), radial-gradient(85% 60% at 88% 100%, rgb(250 204 21 / 0.06), transparent 70%);
   --glass-focus-ring: 0 0 0 2px rgb(5 6 8 / 0.8), 0 0 0 4px rgb(250 204 21 / 0.72);
 }
 
@@ -76,7 +76,7 @@ h6 {
   position: relative;
   overflow: hidden;
   border: 1px solid var(--glass-border-soft);
-  background-color: rgb(8 11 18 / 0.5);
+  background-color: rgb(8 11 18 / 0.58);
   backdrop-filter: blur(var(--glass-blur-md)) saturate(148%) contrast(108%);
   -webkit-backdrop-filter: blur(var(--glass-blur-md)) saturate(148%) contrast(108%);
   box-shadow: var(--glass-shadow-md);
@@ -173,6 +173,14 @@ h6 {
   border-radius: 9999px;
   isolation: isolate;
   overflow: visible;
+}
+
+.music-glass-card::before {
+  opacity: 0.52;
+}
+
+.music-glass-card::after {
+  opacity: 0.1;
 }
 
 .logo-glow::before {

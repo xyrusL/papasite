@@ -1,4 +1,4 @@
-"use client";
+ "use client";
 
 import React, { useState, useRef, useEffect } from "react";
 import * as motion from "framer-motion/client";
@@ -60,8 +60,12 @@ function AudioVisualizer({ isPlaying }: { isPlaying: boolean }) {
                     className={`w-1.5 rounded-t-sm transition-all duration-75 ${visualizerColors[i % visualizerColors.length]}`}
                     style={{
                         height: isPlaying ? `${Math.max(20, ((i * 33) % 100))}%` : "10%",
-                        animation: isPlaying ? `bounce ${0.6 + ((i * 0.1) % 0.4)}s infinite alternate` : "none",
-                        animationDelay: `-${(i * 0.2) % 1}s`,
+                        animationName: isPlaying ? "bounce" : "none",
+                        animationDuration: `${0.6 + ((i * 0.1) % 0.4)}s`,
+                        animationTimingFunction: "ease-in-out",
+                        animationIterationCount: "infinite",
+                        animationDirection: "alternate",
+                        animationDelay: isPlaying ? `-${(i * 0.2) % 1}s` : "0s",
                         opacity: 0.8
                     }}
                 ></div>
@@ -232,32 +236,82 @@ export default function MusicPlayer() {
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
       background: rgba(234, 179, 8, 0.5);
     }
+    /* Mobile and small-device hardening */
+    @supports (padding: max(0px)) {
+      .music-shell {
+        padding-top: max(1rem, env(safe-area-inset-top));
+        padding-left: max(1rem, env(safe-area-inset-left));
+        padding-right: max(1rem, env(safe-area-inset-right));
+        padding-bottom: max(1rem, env(safe-area-inset-bottom));
+      }
+    }
+    @media (max-width: 640px) {
+      .music-header-title {
+        font-size: 1.9rem;
+        line-height: 1.12;
+      }
+      .music-player-card {
+        border-radius: 1.5rem;
+      }
+      .music-queue-card {
+        max-height: 360px;
+      }
+    }
+    @media (max-width: 420px) {
+      .music-shell {
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+      }
+      .music-header-title {
+        font-size: 1.6rem;
+      }
+      .music-player-card {
+        padding: 1.1rem 0.95rem 1.5rem 0.95rem !important;
+      }
+      .music-controls {
+        gap: 0.35rem;
+      }
+      .music-center-controls {
+        gap: 0.7rem;
+      }
+      .music-queue-card {
+        max-height: 320px;
+      }
+    }
   `;
 
     return (
-        <main className="min-h-screen text-white font-sans relative overflow-hidden flex flex-col lg:flex-row items-center justify-center p-4 lg:p-8 gap-8 selection:bg-yellow-500/30">
+        <main className="music-shell min-h-screen text-white font-sans relative overflow-hidden p-4 sm:p-6 lg:p-8 lg:pt-16 selection:bg-yellow-500/30">
             <style>{customStyles}</style>
             {/* Background Effects */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-yellow-500/10 rounded-full blur-[60px] sm:blur-[100px] pointer-events-none"></div>
             <div className="absolute top-0 right-0 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-blue-600/10 rounded-full blur-[40px] sm:blur-[80px] pointer-events-none"></div>
             <Sparkles isPlaying={isPlaying} />
 
-            {/* Back Button - Compact on Mobile */}
-            <Link href="/" className="glass-focus glass-surface glass-surface-soft glass-pill absolute top-4 left-4 lg:top-8 lg:left-8 text-gray-300 hover:text-white transition flex items-center gap-2 z-20 font-bold px-3 py-1.5 sm:px-4 sm:py-2 cursor-pointer text-sm sm:text-base">
-                <FontAwesomeIcon icon={faArrowLeft} /> <span className="hidden sm:inline">Back to Home</span>
-            </Link>
+            <div className="relative z-10 max-w-6xl mx-auto w-full">
+                {/* Top Header Row */}
+                <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr_auto] sm:items-center gap-4 mb-6 lg:mb-8">
+                    <Link href="/" className="glass-focus glass-surface glass-surface-soft glass-pill text-gray-300 hover:text-white transition inline-flex items-center gap-2 self-start font-bold px-3 py-1.5 sm:px-4 sm:py-2 cursor-pointer text-sm sm:text-base">
+                        <FontAwesomeIcon icon={faArrowLeft} /> <span className="hidden sm:inline">Back to Home</span>
+                        <span className="sm:hidden">Back</span>
+                    </Link>
 
-            {/* Left Column: Player (Centered on Mobile) */}
-            <motion.div
-                className="w-full max-w-md relative z-10 flex flex-col"
+                    <h1 className="music-header-title text-3xl sm:text-4xl font-bold text-center font-display text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 drop-shadow-sm select-none">
+                        Papa&apos;s Theme Songs
+                    </h1>
+
+                    <div className="hidden sm:block w-[140px]"></div>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(320px,410px)] xl:grid-cols-[minmax(0,1fr)_430px] gap-6 lg:gap-8 items-start">
+                    {/* Left Column: Player */}
+                    <motion.div
+                        className="w-full max-w-md lg:max-w-none mx-auto relative flex flex-col"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <h1 className="text-3xl sm:text-4xl font-bold text-center mb-6 lg:mb-10 font-display text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 drop-shadow-sm select-none">
-                    Papa&apos;s Theme Songs
-                </h1>
-                <div className="glass-surface glass-surface-mid rounded-[2rem] p-6 pb-8 sm:p-10 w-full relative overflow-hidden">
+                <div className="music-player-card music-glass-card glass-surface glass-surface-mid rounded-[2rem] p-6 pb-8 sm:p-10 w-full relative overflow-hidden">
                     {/* Visualizer Background */}
                     <div className="absolute inset-x-0 bottom-0 pointer-events-none h-32 bg-gradient-to-t from-black/50 to-transparent z-0"></div>
                     <AudioVisualizer isPlaying={isPlaying} />
@@ -307,7 +361,7 @@ export default function MusicPlayer() {
                     </div>
 
                     {/* Controls */}
-                    <div className="flex items-center justify-between gap-4 z-10 relative">
+                    <div className="music-controls flex items-center justify-between gap-4 z-10 relative">
                         <button
                             onClick={() => setIsShuffle(!isShuffle)}
                             className={`glass-focus p-2 rounded-full transition-colors cursor-pointer ${isShuffle ? 'text-yellow-500 bg-yellow-500/10' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
@@ -316,7 +370,7 @@ export default function MusicPlayer() {
                             <FontAwesomeIcon icon={faShuffle} className="text-base sm:text-lg" />
                         </button>
 
-                        <div className="flex items-center gap-4 sm:gap-6">
+                        <div className="music-center-controls flex items-center gap-4 sm:gap-6">
                             <button onClick={prevSong} className="glass-focus p-2 text-xl sm:text-2xl text-gray-300 hover:text-white transition transform hover:-translate-x-1 cursor-pointer">
                                 <FontAwesomeIcon icon={faBackward} />
                             </button>
@@ -342,11 +396,11 @@ export default function MusicPlayer() {
                         </button>
                     </div>
                 </div>
-            </motion.div>
+                    </motion.div>
 
-            {/* Right Column: Playlist (Scrollable list below on mobile) */}
-            <motion.div
-                className="w-full max-w-md h-full flex flex-col"
+                    {/* Right Column: Playlist */}
+                    <motion.div
+                        className="w-full max-w-md lg:max-w-none mx-auto h-auto flex flex-col"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
@@ -367,7 +421,7 @@ export default function MusicPlayer() {
                     </button>
                 </div>
 
-                <div className="glass-surface glass-surface-soft rounded-2xl p-2 overflow-y-auto custom-scrollbar flex-1 max-h-[300px] lg:max-h-[500px]">
+                <div className="music-queue-card music-glass-card glass-surface glass-surface-soft rounded-2xl p-2 overflow-y-auto custom-scrollbar flex-1 max-h-[300px] lg:max-h-[500px]">
                     <div className="space-y-1">
                         {songs.map((song, index) => (
                             <div
@@ -401,7 +455,9 @@ export default function MusicPlayer() {
                         ))}
                     </div>
                 </div>
-            </motion.div>
+                    </motion.div>
+                </div>
+            </div>
 
             {/* Download Modal */}
             {downloadModal.isOpen && (
