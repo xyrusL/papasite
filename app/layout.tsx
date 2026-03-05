@@ -13,6 +13,10 @@ const rajdhani = Rajdhani({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://papaselectronicrepairshop.deze.me"),
+  alternates: {
+    canonical: "/",
+  },
   title: {
     default: "TV Repair & Electronics Specialist | Papa's Repair Shop QC",
     template: "%s | Papa's Electronic Repair Shop",
@@ -42,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_PH",
-    url: "https://papas-repair.vercel.app/",
+    url: "https://papaselectronicrepairshop.deze.me/",
     title: "TV Repair & Electronics Specialist | Papa's Repair Shop QC",
     description: "Naghahanap ng TV repair shop? Trusted sa Quezon City at Rizal. Expert sa LED, Smart TV, at Electric Fans.",
     siteName: "Papa's Electronic Repair Shop",
