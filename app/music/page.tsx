@@ -47,13 +47,15 @@ const songs = [
 ];
 
 const visualizerColors = [
-    "bg-yellow-500", "bg-blue-500", "bg-red-500", "bg-green-500", "bg-purple-500",
-    "bg-pink-500", "bg-orange-500", "bg-cyan-500"
+    "bg-[var(--accent-copper-strong)]",
+    "bg-[var(--accent-cyan-soft)]",
+    "bg-[rgb(199_100_67_/_0.75)]",
+    "bg-[rgb(87_191_210_/_0.75)]"
 ];
 
 function AudioVisualizer({ isPlaying }: { isPlaying: boolean }) {
     return (
-        <div className="flex justify-center items-end h-10 sm:h-16 gap-1 w-full max-w-[200px] mx-auto absolute bottom-2 sm:bottom-4 left-1/2 -translate-x-1/2 opacity-60 pointer-events-none z-0">
+        <div className="absolute bottom-1.5 left-1/2 z-0 mx-auto flex h-8 w-full max-w-[160px] -translate-x-1/2 items-end justify-center gap-1 opacity-55 pointer-events-none min-[390px]:bottom-2 min-[390px]:h-10 min-[390px]:max-w-[200px] sm:bottom-4 sm:h-16">
             {[...Array(20)].map((_, i) => (
                 <div
                     key={i}
@@ -78,20 +80,20 @@ function Sparkles({ isPlaying }: { isPlaying: boolean }) {
     return (
         <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
             <div className={isPlaying ? "animate-pulse" : ""}>
-                <FontAwesomeIcon icon={faMusic} className={`absolute text-yellow-500/40 text-4xl float-animation ${isPlaying ? "duration-[2s]" : "duration-[6s]"}`} style={{ top: "10%", left: "5%", animationDelay: "0s" }} />
-                <FontAwesomeIcon icon={faMusic} className={`absolute text-blue-500/40 text-3xl float-animation ${isPlaying ? "duration-[3s]" : "duration-[7s]"}`} style={{ top: "20%", right: "10%", animationDelay: "1s" }} />
-                <FontAwesomeIcon icon={faMusic} className={`absolute text-red-500/40 text-2xl float-animation ${isPlaying ? "duration-[2.5s]" : "duration-[5s]"}`} style={{ bottom: "15%", left: "15%", animationDelay: "2s" }} />
-                <FontAwesomeIcon icon={faMusic} className={`absolute text-green-500/40 text-5xl float-animation ${isPlaying ? "duration-[4s]" : "duration-[8s]"}`} style={{ bottom: "25%", right: "20%", animationDelay: "0.5s" }} />
-                <FontAwesomeIcon icon={faMusic} className={`absolute text-purple-500/40 text-3xl float-animation ${isPlaying ? "duration-[3.5s]" : "duration-[6.5s]"}`} style={{ top: "40%", left: "40%", animationDelay: "3s" }} />
-                <FontAwesomeIcon icon={faMusic} className={`absolute text-pink-500/40 text-2xl float-animation ${isPlaying ? "duration-[2s]" : "duration-[5.5s]"}`} style={{ top: "60%", right: "35%", animationDelay: "1.5s" }} />
+                <FontAwesomeIcon icon={faMusic} className={`absolute text-[rgb(199_100_67_/_0.34)] text-4xl float-animation ${isPlaying ? "duration-[2s]" : "duration-[6s]"}`} style={{ top: "10%", left: "5%", animationDelay: "0s" }} />
+                <FontAwesomeIcon icon={faMusic} className={`absolute text-[rgb(87_191_210_/_0.34)] text-3xl float-animation ${isPlaying ? "duration-[3s]" : "duration-[7s]"}`} style={{ top: "20%", right: "10%", animationDelay: "1s" }} />
+                <FontAwesomeIcon icon={faMusic} className={`absolute text-[rgb(224_125_87_/_0.26)] text-2xl float-animation ${isPlaying ? "duration-[2.5s]" : "duration-[5s]"}`} style={{ bottom: "15%", left: "15%", animationDelay: "2s" }} />
+                <FontAwesomeIcon icon={faMusic} className={`absolute text-[rgb(87_191_210_/_0.22)] text-5xl float-animation ${isPlaying ? "duration-[4s]" : "duration-[8s]"}`} style={{ bottom: "25%", right: "20%", animationDelay: "0.5s" }} />
+                <FontAwesomeIcon icon={faMusic} className={`absolute text-[rgb(199_100_67_/_0.18)] text-3xl float-animation ${isPlaying ? "duration-[3.5s]" : "duration-[6.5s]"}`} style={{ top: "40%", left: "40%", animationDelay: "3s" }} />
+                <FontAwesomeIcon icon={faMusic} className={`absolute text-[rgb(87_191_210_/_0.18)] text-2xl float-animation ${isPlaying ? "duration-[2s]" : "duration-[5.5s]"}`} style={{ top: "60%", right: "35%", animationDelay: "1.5s" }} />
             </div>
 
             {isPlaying && (
                 <>
-                    <div className="absolute top-1/3 left-1/4 w-2 h-2 bg-yellow-400 rounded-full animate-ping opacity-80"></div>
+                    <div className="absolute top-1/3 left-1/4 w-2 h-2 rounded-full bg-[var(--accent-copper-strong)] animate-ping opacity-80"></div>
                     <div className="absolute bottom-1/3 right-1/4 w-1.5 h-1.5 bg-white rounded-full animate-ping opacity-60 animation-delay-700"></div>
-                    <div className="absolute top-2/3 right-1/3 w-2 h-2 bg-blue-400 rounded-full animate-ping opacity-50 animation-delay-1200"></div>
-                    <div className="absolute bottom-1/4 left-1/2 w-1 h-1 bg-green-400 rounded-full animate-ping opacity-70 animation-delay-2000"></div>
+                    <div className="absolute top-2/3 right-1/3 w-2 h-2 rounded-full bg-[var(--accent-cyan-soft)] animate-ping opacity-50 animation-delay-1200"></div>
+                    <div className="absolute bottom-1/4 left-1/2 w-1 h-1 rounded-full bg-[rgb(199_100_67_/_0.85)] animate-ping opacity-70 animation-delay-2000"></div>
                 </>
             )}
         </div>
@@ -234,7 +236,7 @@ export default function MusicPlayer() {
       border-radius: 10px;
     }
     .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: rgba(234, 179, 8, 0.5);
+      background: rgba(199, 100, 67, 0.5);
     }
     /* Mobile and small-device hardening */
     @supports (padding: max(0px)) {
@@ -281,44 +283,44 @@ export default function MusicPlayer() {
   `;
 
     return (
-        <main className="music-shell min-h-screen text-white font-sans relative overflow-hidden p-4 sm:p-6 lg:p-8 lg:pt-16 selection:bg-yellow-500/30">
+        <main className="music-shell min-h-screen relative overflow-hidden p-3 font-sans text-[var(--foreground)] min-[390px]:p-4 sm:p-6 lg:p-8 lg:pt-16">
             <style>{customStyles}</style>
             {/* Background Effects */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300px] sm:w-[600px] h-[300px] sm:h-[600px] bg-yellow-500/10 rounded-full blur-[60px] sm:blur-[100px] pointer-events-none"></div>
-            <div className="absolute top-0 right-0 w-[200px] sm:w-[400px] h-[200px] sm:h-[400px] bg-blue-600/10 rounded-full blur-[40px] sm:blur-[80px] pointer-events-none"></div>
+            <div className="pointer-events-none absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[rgb(199_100_67_/_0.1)] blur-[44px] min-[390px]:h-[300px] min-[390px]:w-[300px] min-[390px]:blur-[60px] sm:h-[600px] sm:w-[600px] sm:blur-[100px]"></div>
+            <div className="pointer-events-none absolute right-0 top-0 h-[140px] w-[140px] rounded-full bg-[rgb(87_191_210_/_0.09)] blur-[28px] min-[390px]:h-[200px] min-[390px]:w-[200px] min-[390px]:blur-[40px] sm:h-[400px] sm:w-[400px] sm:blur-[80px]"></div>
             <Sparkles isPlaying={isPlaying} />
 
             <div className="relative z-10 max-w-6xl mx-auto w-full">
                 {/* Top Header Row */}
-                <div className="grid grid-cols-1 sm:grid-cols-[auto_1fr_auto] sm:items-center gap-4 mb-6 lg:mb-8">
-                    <Link href="/" className="glass-focus glass-surface glass-surface-soft glass-pill text-gray-300 hover:text-white transition inline-flex items-center gap-2 self-start font-bold px-3 py-1.5 sm:px-4 sm:py-2 cursor-pointer text-sm sm:text-base">
+                <div className="mb-5 grid grid-cols-1 gap-3 sm:mb-6 sm:grid-cols-[auto_1fr_auto] sm:items-center sm:gap-4 lg:mb-8">
+                    <Link href="/" className="glass-focus button-secondary inline-flex self-start px-3 py-1.5 text-sm sm:px-4 sm:py-2 sm:text-base">
                         <FontAwesomeIcon icon={faArrowLeft} /> <span className="hidden sm:inline">Back to Home</span>
                         <span className="sm:hidden">Back</span>
                     </Link>
 
-                    <h1 className="music-header-title text-3xl sm:text-4xl font-bold text-center font-display text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600 drop-shadow-sm select-none">
+                    <h1 className="music-header-title text-center font-display text-[1.65rem] font-bold leading-tight text-[var(--foreground)] select-none min-[390px]:text-3xl sm:text-4xl">
                         Papa&apos;s Theme Songs
                     </h1>
 
                     <div className="hidden sm:block w-[140px]"></div>
                 </div>
 
-                <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_minmax(320px,410px)] xl:grid-cols-[minmax(0,1fr)_430px] gap-6 lg:gap-8 items-start">
+                <div className="grid grid-cols-1 items-start gap-4 min-[390px]:gap-5 lg:grid-cols-[minmax(0,1fr)_minmax(320px,410px)] lg:gap-8 xl:grid-cols-[minmax(0,1fr)_430px]">
                     {/* Left Column: Player */}
                     <motion.div
-                        className="w-full max-w-md lg:max-w-none mx-auto relative flex flex-col"
+                        className="relative mx-auto flex w-full max-w-md flex-col lg:max-w-none"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5 }}
             >
-                <div className="music-player-card music-glass-card glass-surface glass-surface-mid rounded-[2rem] p-6 pb-8 sm:p-10 w-full relative overflow-hidden">
+                <div className="music-player-card music-glass-card glass-surface glass-surface-strong relative w-full overflow-hidden rounded-[1.5rem] p-4 pb-6 min-[390px]:p-5 min-[390px]:pb-7 sm:rounded-[2rem] sm:p-10 sm:pb-8">
                     {/* Visualizer Background */}
-                    <div className="absolute inset-x-0 bottom-0 pointer-events-none h-32 bg-gradient-to-t from-black/50 to-transparent z-0"></div>
+                    <div className="absolute inset-x-0 bottom-0 z-0 h-32 pointer-events-none bg-gradient-to-t from-black/50 to-transparent"></div>
                     <AudioVisualizer isPlaying={isPlaying} />
 
                     {/* Album Art - Smaller on Mobile */}
-                    <div className="relative w-44 h-44 sm:w-64 sm:h-64 mx-auto rounded-full overflow-hidden mb-8 shadow-2xl border-4 border-white/5 group bg-black/50 z-10">
-                        <div className="absolute inset-0 bg-yellow-500/5 animate-pulse z-0"></div>
+                    <div className="group relative z-10 mx-auto mb-6 h-32 w-32 overflow-hidden rounded-full border-4 border-white/5 bg-black/50 shadow-2xl min-[390px]:mb-7 min-[390px]:h-40 min-[390px]:w-40 sm:mb-8 sm:h-64 sm:w-64">
+                        <div className="absolute inset-0 z-0 animate-pulse bg-[rgb(199_100_67_/_0.06)]"></div>
                         {/* Spinning Album Art */}
                         <div
                             className="relative w-full h-full spin-animation"
@@ -331,17 +333,17 @@ export default function MusicPlayer() {
                                 className="object-cover p-1 pointer-events-none"
                             />
                             {/* Central Donut Hole */}
-                            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-4 sm:w-6 h-4 sm:h-6 bg-black/80 rounded-full border border-white/10 z-10"></div>
+                            <div className="absolute left-1/2 top-1/2 z-10 h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 bg-black/80 sm:h-6 sm:w-6"></div>
                         </div>
                     </div>
 
-                    <div className="text-center mb-6 z-10 relative">
-                        <h2 className="text-xl sm:text-2xl font-bold mb-1 truncate text-white select-text">{currentSong.title}</h2>
-                        <p className="text-gray-400 text-xs sm:text-sm tracking-[0.2em] uppercase font-medium select-none">{currentSong.artist}</p>
+                    <div className="relative z-10 mb-5 text-center min-[390px]:mb-6">
+                        <h2 className="mb-1 truncate text-lg font-bold text-[var(--foreground)] select-text min-[390px]:text-xl sm:text-2xl">{currentSong.title}</h2>
+                        <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--foreground-muted)] select-none sm:text-sm">{currentSong.artist}</p>
                     </div>
 
                     {/* Progress Bar */}
-                    <div className="group w-full h-1.5 bg-gray-800/80 rounded-full mb-8 overflow-hidden cursor-pointer relative z-10" onClick={(e) => {
+                    <div className="group relative z-10 mb-6 h-1.5 w-full cursor-pointer overflow-hidden rounded-full bg-[rgb(255_255_255_/_0.08)] min-[390px]:mb-8" onClick={(e) => {
                         const bounds = e.currentTarget.getBoundingClientRect();
                         const x = e.clientX - bounds.left;
                         const width = bounds.width;
@@ -355,44 +357,44 @@ export default function MusicPlayer() {
                             setProgress(percent * 100);
                         }
                     }}>
-                        <div className="h-full bg-gradient-to-r from-yellow-500 to-yellow-300 rounded-full transition-all duration-100 relative" style={{ width: `${progress}%` }}>
-                            <div className="absolute right-0 top-1/2 -translate-y-1/2 w-3 h-3 bg-white rounded-full shadow-md opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                        <div className="relative h-full rounded-full bg-gradient-to-r from-[var(--accent-copper)] to-[var(--accent-cyan)] transition-all duration-100" style={{ width: `${progress}%` }}>
+                            <div className="absolute right-0 top-1/2 h-3 w-3 -translate-y-1/2 rounded-full bg-white shadow-md opacity-0 transition-opacity group-hover:opacity-100"></div>
                         </div>
                     </div>
 
                     {/* Controls */}
-                    <div className="music-controls flex items-center justify-between gap-4 z-10 relative">
+                    <div className="music-controls relative z-10 flex items-center justify-between gap-2 min-[390px]:gap-4">
                         <button
                             onClick={() => setIsShuffle(!isShuffle)}
-                            className={`glass-focus p-2 rounded-full transition-colors cursor-pointer ${isShuffle ? 'text-yellow-500 bg-yellow-500/10' : 'text-gray-400 hover:text-white hover:bg-white/5'}`}
+                            className={`glass-focus cursor-pointer rounded-full p-2 transition-colors ${isShuffle ? 'bg-[rgb(199_100_67_/_0.12)] text-[var(--accent-copper-strong)]' : 'text-[var(--foreground-muted)] hover:bg-white/5 hover:text-[var(--foreground)]'}`}
                             title="Shuffle"
                         >
-                            <FontAwesomeIcon icon={faShuffle} className="text-base sm:text-lg" />
+                            <FontAwesomeIcon icon={faShuffle} className="text-sm min-[390px]:text-base sm:text-lg" />
                         </button>
 
-                        <div className="music-center-controls flex items-center gap-4 sm:gap-6">
-                            <button onClick={prevSong} className="glass-focus p-2 text-xl sm:text-2xl text-gray-300 hover:text-white transition transform hover:-translate-x-1 cursor-pointer">
+                        <div className="music-center-controls flex items-center gap-2.5 min-[390px]:gap-4 sm:gap-6">
+                            <button onClick={prevSong} className="glass-focus cursor-pointer p-1.5 text-lg text-[var(--foreground-soft)] transition hover:-translate-x-1 hover:text-[var(--foreground)] min-[390px]:p-2 min-[390px]:text-xl sm:text-2xl">
                                 <FontAwesomeIcon icon={faBackward} />
                             </button>
 
                             <button
                                 onClick={togglePlay}
-                                className="glass-focus w-14 h-14 sm:w-16 sm:h-16 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center text-black text-xl sm:text-2xl shadow-lg hover:scale-105 transition-transform cursor-pointer"
+                                className="glass-focus flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-gradient-to-br from-[var(--accent-copper)] to-[var(--accent-copper-strong)] text-lg text-[#fff7f2] shadow-lg transition-transform hover:scale-105 min-[390px]:h-14 min-[390px]:w-14 min-[390px]:text-xl sm:h-16 sm:w-16 sm:text-2xl"
                             >
                                 <FontAwesomeIcon icon={isPlaying ? faPause : faPlay} className="ml-1" />
                             </button>
 
-                            <button onClick={nextSong} className="glass-focus p-2 text-xl sm:text-2xl text-gray-300 hover:text-white transition transform hover:translate-x-1 cursor-pointer">
+                            <button onClick={nextSong} className="glass-focus cursor-pointer p-1.5 text-lg text-[var(--foreground-soft)] transition hover:translate-x-1 hover:text-[var(--foreground)] min-[390px]:p-2 min-[390px]:text-xl sm:text-2xl">
                                 <FontAwesomeIcon icon={faForward} />
                             </button>
                         </div>
 
                         <button
                             onClick={(e) => handleDownloadClick(e, currentSong)}
-                            className="glass-focus p-2 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-colors cursor-pointer"
+                            className="glass-focus cursor-pointer rounded-full p-2 text-[var(--foreground-muted)] transition-colors hover:bg-white/5 hover:text-[var(--foreground)]"
                             title="Download Song"
                         >
-                            <FontAwesomeIcon icon={faDownload} className="text-base sm:text-lg" />
+                            <FontAwesomeIcon icon={faDownload} className="text-sm min-[390px]:text-base sm:text-lg" />
                         </button>
                     </div>
                 </div>
@@ -400,41 +402,41 @@ export default function MusicPlayer() {
 
                     {/* Right Column: Playlist */}
                     <motion.div
-                        className="w-full max-w-md lg:max-w-none mx-auto h-auto flex flex-col"
+                        className="mx-auto flex h-auto w-full max-w-md flex-col lg:max-w-none"
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5, delay: 0.2 }}
             >
-                <div className="flex items-center justify-between mb-4 px-2">
-                    <h3 className="text-sm font-bold text-gray-400 tracking-wide flex items-center gap-2 select-none uppercase">
-                        <span className="w-1 h-4 bg-yellow-500 rounded-full"></span>
+                <div className="mb-3 flex flex-col items-start gap-3 px-1 min-[390px]:mb-4 min-[390px]:flex-row min-[390px]:items-center min-[390px]:justify-between min-[390px]:px-2">
+                    <h3 className="flex items-center gap-2 text-sm font-bold uppercase tracking-wide text-[var(--foreground-muted)] select-none">
+                        <span className="h-4 w-1 rounded-full bg-[var(--accent-copper-strong)]"></span>
                         Queue
                     </h3>
 
                     {/* Autoplay Toggle */}
                     <button
                         onClick={() => setAutoPlay(!autoPlay)}
-                        className={`glass-focus flex items-center gap-2 text-xs font-bold px-3 py-1.5 rounded-full transition-all border ${autoPlay ? 'bg-yellow-500/20 text-yellow-500 border-yellow-500/50' : 'bg-white/5 text-gray-400 border-white/10 hover:bg-white/10'}`}
+                        className={`glass-focus flex min-h-10 items-center gap-2 rounded-full border px-3 py-1.5 text-xs font-bold transition-all ${autoPlay ? 'border-[rgb(199_100_67_/_0.45)] bg-[rgb(199_100_67_/_0.16)] text-[var(--accent-copper-strong)]' : 'border-white/10 bg-white/5 text-[var(--foreground-muted)] hover:bg-white/10'}`}
                     >
-                        <div className={`w-2 h-2 rounded-full ${autoPlay ? 'bg-yellow-500 animate-pulse' : 'bg-gray-500'}`}></div>
+                        <div className={`h-2 w-2 rounded-full ${autoPlay ? 'animate-pulse bg-[var(--accent-copper-strong)]' : 'bg-white/25'}`}></div>
                         Autoplay: {autoPlay ? 'ON' : 'OFF'}
                     </button>
                 </div>
 
-                <div className="music-queue-card music-glass-card glass-surface glass-surface-soft rounded-2xl p-2 overflow-y-auto custom-scrollbar flex-1 max-h-[300px] lg:max-h-[500px]">
+                <div className="music-queue-card music-glass-card glass-surface glass-surface-soft custom-scrollbar flex-1 overflow-y-auto rounded-[1.35rem] p-1.5 min-[390px]:rounded-2xl min-[390px]:p-2 max-h-[280px] min-[390px]:max-h-[300px] lg:max-h-[500px]">
                     <div className="space-y-1">
                         {songs.map((song, index) => (
                             <div
                                 key={index}
                                 onClick={() => handleSongSelect(index)}
-                                className={`glass-focus p-3 rounded-lg flex items-center gap-3 cursor-pointer transition-all duration-300 group ${currentSongIndex === index ? 'bg-white/10 border border-yellow-500/30 shadow-md' : 'hover:bg-white/5 border border-transparent'}`}
+                                className={`glass-focus group flex cursor-pointer items-center gap-2.5 rounded-lg border p-2.5 min-[390px]:gap-3 min-[390px]:p-3 transition-all duration-300 ${currentSongIndex === index ? 'border-[rgb(199_100_67_/_0.28)] bg-[rgb(255_255_255_/_0.08)] shadow-md' : 'border-transparent hover:bg-white/5'}`}
                             >
-                                <div className={`w-10 h-10 rounded-lg flex items-center justify-center shrink-0 transition-colors ${currentSongIndex === index ? 'bg-yellow-500 text-black' : 'bg-gray-800 text-gray-500 group-hover:text-gray-300'}`}>
+                                <div className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-lg transition-colors min-[390px]:h-10 min-[390px]:w-10 ${currentSongIndex === index ? 'bg-[var(--accent-copper-strong)] text-[#fff7f2]' : 'bg-[rgb(255_255_255_/_0.06)] text-white/35 group-hover:text-[var(--foreground-soft)]'}`}>
                                     {currentSongIndex === index && isPlaying ? (
                                         <div className="flex gap-0.5 h-3 items-end">
-                                            <div className="w-0.5 bg-black animate-[bounce_0.8s_infinite] h-full rounded-full"></div>
-                                            <div className="w-0.5 bg-black animate-[bounce_1.2s_infinite] h-2/3 rounded-full"></div>
-                                            <div className="w-0.5 bg-black animate-[bounce_0.6s_infinite] h-1/2 rounded-full"></div>
+                                            <div className="h-full w-0.5 animate-[bounce_0.8s_infinite] rounded-full bg-[#fff7f2]"></div>
+                                            <div className="h-2/3 w-0.5 animate-[bounce_1.2s_infinite] rounded-full bg-[#fff7f2]"></div>
+                                            <div className="h-1/2 w-0.5 animate-[bounce_0.6s_infinite] rounded-full bg-[#fff7f2]"></div>
                                         </div>
                                     ) : (
                                         <FontAwesomeIcon icon={faMusic} className="text-sm" />
@@ -442,12 +444,12 @@ export default function MusicPlayer() {
                                 </div>
 
                                 <div className="flex-1 min-w-0">
-                                    <h4 className={`font-bold truncate text-sm mb-0.5 ${currentSongIndex === index ? 'text-yellow-400' : 'text-gray-200 group-hover:text-white'}`}>{song.title}</h4>
-                                    <p className="text-[10px] uppercase font-bold text-gray-600 truncate group-hover:text-gray-500">{song.artist}</p>
+                                    <h4 className={`mb-0.5 truncate text-[13px] font-bold min-[390px]:text-sm ${currentSongIndex === index ? 'text-[var(--accent-copper-strong)]' : 'text-[var(--foreground-soft)] group-hover:text-[var(--foreground)]'}`}>{song.title}</h4>
+                                    <p className="truncate text-[10px] font-bold uppercase text-white/30 group-hover:text-[var(--foreground-muted)]">{song.artist}</p>
                                 </div>
 
                                 {currentSongIndex === index && (
-                                    <div className="text-yellow-500 text-[10px] font-bold px-1.5 py-0.5 bg-yellow-500/10 rounded">
+                                    <div className="hidden rounded bg-[rgb(199_100_67_/_0.14)] px-1.5 py-0.5 text-[10px] font-bold text-[var(--accent-copper-strong)] min-[390px]:block">
                                         PLAYING
                                     </div>
                                 )}
@@ -464,41 +466,41 @@ export default function MusicPlayer() {
                 <motion.div
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
-                    className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm"
+                    className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4 backdrop-blur-sm"
                 >
                     <motion.div
                         initial={{ scale: 0.9, y: 20 }}
                         animate={{ scale: 1, y: 0 }}
-                        className="glass-surface glass-surface-strong rounded-3xl p-8 max-w-sm w-full text-center relative overflow-hidden"
+                        className="glass-surface glass-surface-strong relative w-full max-w-sm overflow-hidden rounded-3xl p-6 text-center min-[390px]:p-8"
                     >
                         {/* Decorative Sparkles/Notes */}
                         <div className="absolute inset-0 pointer-events-none">
-                            <FontAwesomeIcon icon={faMusic} className="absolute text-yellow-500/40 text-xl float-animation" style={{ top: '20%', left: '15%', animationDelay: '0s' }} />
-                            <FontAwesomeIcon icon={faMusic} className="absolute text-yellow-500/30 text-lg float-animation" style={{ top: '40%', right: '15%', animationDelay: '1s' }} />
-                            <FontAwesomeIcon icon={faMusic} className="absolute text-yellow-500/20 text-sm float-animation" style={{ top: '70%', left: '25%', animationDelay: '0.5s' }} />
-                            <div className="absolute top-1/4 right-1/4 w-1 h-1 bg-yellow-400 rounded-full animate-ping opacity-75"></div>
+                            <FontAwesomeIcon icon={faMusic} className="absolute text-[rgb(199_100_67_/_0.32)] text-xl float-animation" style={{ top: '20%', left: '15%', animationDelay: '0s' }} />
+                            <FontAwesomeIcon icon={faMusic} className="absolute text-[rgb(87_191_210_/_0.28)] text-lg float-animation" style={{ top: '40%', right: '15%', animationDelay: '1s' }} />
+                            <FontAwesomeIcon icon={faMusic} className="absolute text-[rgb(199_100_67_/_0.18)] text-sm float-animation" style={{ top: '70%', left: '25%', animationDelay: '0.5s' }} />
+                            <div className="absolute top-1/4 right-1/4 h-1 w-1 rounded-full bg-[var(--accent-copper-strong)] animate-ping opacity-75"></div>
                             <div className="absolute bottom-1/3 left-1/3 w-1.5 h-1.5 bg-white rounded-full animate-ping opacity-50 animation-delay-500"></div>
                         </div>
 
-                        <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-yellow-500 to-yellow-300"></div>
+                        <div className="absolute left-0 top-0 h-1 w-full bg-gradient-to-r from-[var(--accent-copper)] to-[var(--accent-cyan)]"></div>
 
-                        <div className="w-16 h-16 bg-yellow-500/10 rounded-full flex items-center justify-center mx-auto mb-6 relative z-10">
-                            <FontAwesomeIcon icon={faDownload} className="text-yellow-500 text-2xl" />
+                        <div className="relative z-10 mx-auto mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-[rgb(199_100_67_/_0.12)]">
+                            <FontAwesomeIcon icon={faDownload} className="text-2xl text-[var(--accent-copper-strong)]" />
                         </div>
 
-                        <h3 className="text-2xl font-bold text-white mb-2 font-display relative z-10">Downloading...</h3>
-                        <p className="text-gray-400 mb-6 italic relative z-10">&quot;Let&apos;s jam in good vibes sa Papa&apos;s!&quot;</p>
+                        <h3 className="relative z-10 mb-2 font-display text-2xl font-bold text-[var(--foreground)]">Downloading...</h3>
+                        <p className="relative z-10 mb-6 italic text-[var(--foreground-muted)]">&quot;Let&apos;s jam in good vibes sa Papa&apos;s!&quot;</p>
 
-                        <div className="flex gap-3 relative z-10">
+                        <div className="relative z-10 flex flex-col gap-3 min-[390px]:flex-row">
                             <button
                                 onClick={() => setDownloadModal({ isOpen: false, song: null })}
-                                className="glass-focus flex-1 py-3 rounded-xl font-bold bg-white/5 hover:bg-white/10 text-gray-300 hover:text-white transition cursor-pointer"
+                                className="glass-focus flex-1 cursor-pointer rounded-xl bg-white/5 py-3 font-bold text-[var(--foreground-soft)] transition hover:bg-white/10 hover:text-[var(--foreground)]"
                             >
                                 Cancel
                             </button>
                             <button
                                 onClick={confirmDownload}
-                                className="glass-focus flex-1 py-3 rounded-xl font-bold bg-gradient-to-r from-yellow-500 to-yellow-600 text-black hover:scale-105 transition-transform cursor-pointer"
+                                className="glass-focus flex-1 cursor-pointer rounded-xl bg-gradient-to-r from-[var(--accent-copper)] to-[var(--accent-copper-strong)] py-3 font-bold text-[#fff7f2] transition-transform hover:scale-105"
                             >
                                 Continue
                             </button>

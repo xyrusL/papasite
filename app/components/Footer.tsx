@@ -4,69 +4,65 @@ import { faFacebook } from "@fortawesome/free-brands-svg-icons";
 import * as motion from "framer-motion/client";
 
 export default function Footer() {
-    return (
-        <footer id="contact" className="border-t border-white/10 text-gray-300 py-8 font-sans">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-6 md:gap-0">
-
-                    {/* Brand & Address */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                    >
-                        <h3 className="text-white font-display font-bold text-2xl mb-2 text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">Papa&apos;s Repair</h3>
-                        <div className="space-y-1 text-base text-gray-400">
-                            <p>23 Chestnut Ext, Quezon City, Philippines, 1121</p>
-                            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 text-yellow-500 font-bold text-lg mt-2">
-                                <span>📞 Call/Text:</span>
-                                <span>0977-607-4426</span>
-                            </div>
-                        </div>
-                    </motion.div>
-
-                    {/* Socials */}
-                    <motion.div
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2 }}
-                    >
-                        <a
-                            href="https://www.facebook.com/papaelectronicrepair"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="glass-focus group flex flex-col sm:flex-row items-center gap-3 text-blue-400 hover:text-blue-300 transition text-center sm:text-left"
-                        >
-                            <div className="glass-surface glass-surface-soft p-3 rounded-full group-hover:bg-blue-600/20 transition duration-300">
-                                <FontAwesomeIcon icon={faFacebook} className="h-6 w-6 group-hover:scale-110 transition duration-300 transform" />
-                            </div>
-                            <div className="text-center sm:text-left">
-                                <span className="font-bold text-lg block">Message us on Facebook</span>
-                                <p className="text-xs text-gray-500 max-w-xs leading-tight">
-                                    Inquiries & Scheduling
-                                </p>
-                            </div>
-                        </a>
-                    </motion.div>
-                </div>
-
+  return (
+    <footer id="contact" className="px-4 py-10 font-sans sm:px-6 sm:py-12 lg:px-8">
+      <motion.div
+        className="footer-bar glass-surface glass-surface-strong theme-panel mx-auto max-w-6xl px-5 py-6 sm:px-8 sm:py-10"
+        initial={{ opacity: 0, y: 18 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+      >
+        <div className="grid gap-6 lg:grid-cols-[1.3fr_0.9fr] lg:items-center lg:gap-8">
+          <div className="order-2 text-center lg:order-1 lg:text-left">
+            <p className="text-xs font-bold uppercase tracking-[0.22em] text-[var(--accent-cyan-soft)] sm:text-sm sm:tracking-[0.24em]">
+              Ready to book a repair?
+            </p>
+            <h3 className="mt-3 font-display text-[1.8rem] font-bold leading-tight text-[var(--foreground)] min-[390px]:text-3xl sm:mt-4 sm:text-4xl">
+              Talk to Papa&apos;s Repair for diagnostics, scheduling, and home service.
+            </h3>
+            <p className="mt-3 max-w-2xl text-sm leading-7 text-[var(--foreground-muted)] min-[390px]:text-base min-[390px]:leading-8 sm:mt-4">
+              Montinola Compound, Accountant Street, Sauyo, Quezon City. We serve customers in
+              QC and Rizal with dependable electronics repair and honest updates.
+            </p>
+            <div className="mt-5 flex flex-col items-stretch gap-3 text-base font-semibold text-[var(--foreground-soft)] min-[390px]:items-center lg:items-start">
+              <span className="theme-pill">Call/Text: 0977-607-4426</span>
+              <span className="theme-pill">TV, appliance, and electronics repair</span>
             </div>
+          </div>
 
-            <motion.div
-                className="footer-bar glass-surface glass-surface-soft mt-8 pt-6 pb-4 border-t border-white/10 rounded-2xl flex flex-col sm:flex-row justify-between items-center text-xs text-gray-400 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8"
-                initial={{ opacity: 0 }}
-                whileInView={{ opacity: 1 }}
-                viewport={{ once: true }}
+          <div className="order-1 mobile-cta-stack max-w-md justify-self-center lg:order-2 lg:max-w-none">
+            <a
+              href="https://www.facebook.com/papaelectronicrepair"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="glass-focus button-primary"
             >
-                <div className="mb-2 sm:mb-0">
-                    &copy; {new Date().getFullYear()} Papa&apos;s Electronic Repair Shop. All rights reserved.
-                </div>
-                <div className="flex flex-wrap justify-center gap-4">
-                    <a href="/privacy" className="hover:text-yellow-500 transition">Privacy Policy</a>
-                    <a href="/terms" className="hover:text-yellow-500 transition">Terms of Service</a>
-                </div>
-            </motion.div>
-        </footer>
-    );
+              <FontAwesomeIcon icon={faFacebook} className="h-5 w-5" />
+              Message us on Facebook
+            </a>
+            <a href="tel:+639776074426" className="glass-focus button-secondary">
+              Call 0977-607-4426
+            </a>
+          </div>
+        </div>
+
+        <motion.div
+          className="mt-7 flex flex-col gap-3 border-t border-white/8 pt-5 text-center text-sm text-[var(--foreground-muted)] sm:mt-8 sm:gap-4 sm:pt-6 sm:text-left sm:flex-row sm:items-center sm:justify-between"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <div>&copy; {new Date().getFullYear()} Papa&apos;s Electronic Repair Shop. All rights reserved.</div>
+          <div className="flex flex-wrap items-center justify-center gap-5 sm:justify-start">
+            <a href="/privacy" className="transition hover:text-[var(--accent-copper-strong)]">
+              Privacy Policy
+            </a>
+            <a href="/terms" className="transition hover:text-[var(--accent-copper-strong)]">
+              Terms of Service
+            </a>
+          </div>
+        </motion.div>
+      </motion.div>
+    </footer>
+  );
 }

@@ -41,66 +41,81 @@ const item = {
 };
 
 export default function Services() {
-    return (
-        <section id="services" className="py-24 text-white px-4 sm:px-6 lg:px-8">
-            <div className="max-w-7xl mx-auto">
-                <div className="text-center mb-20 max-w-3xl mx-auto">
-                    <motion.h2
-                        className="text-4xl sm:text-5xl font-bold text-yellow-500 mb-6 tracking-tight font-display"
-                        initial={{ opacity: 0, y: -20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.6 }}
-                    >
-                        Our Expertise
-                    </motion.h2>
-                    <motion.p
-                        className="text-gray-400 text-lg sm:text-xl leading-relaxed"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2, duration: 0.6 }}
-                    >
-                        At <strong>Papa&apos;s Electronic Repair Shop</strong>, we provide comprehensive repair solutions for a wide range of devices.
-                        From troubleshooting complex <strong>Smart TV</strong> failures to maintaining everyday <strong>electric fans</strong>,
-                        our experienced technicians in <strong>Quezon City</strong> use precision tools to ensure quality results.
-                        We believe in honest service -- <em>pag kaya pangayusin, aayusin natin!</em>
-                    </motion.p>
-                </div>
+  return (
+    <section id="services" className="px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <div className="mx-auto max-w-7xl">
+        <div className="section-heading">
+          <motion.span
+            className="section-eyebrow"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Core services
+          </motion.span>
+          <motion.h2
+            className="section-title"
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            Skilled repair work for the devices you rely on.
+          </motion.h2>
+          <motion.p
+            className="section-copy"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            At <strong className="text-[var(--foreground)]">Papa&apos;s Electronic Repair Shop</strong>,
+            we troubleshoot, repair, and restore TVs, appliances, and electronics with honest
+            diagnostics and precision work. Pag kaya pang ayusin, aayusin natin.
+          </motion.p>
+          <div className="accent-line" />
+        </div>
 
-                <motion.div
-                    className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-8 lg:gap-10"
-                    variants={container}
-                    initial="hidden"
-                    whileInView="show"
-                    viewport={{ once: true, margin: "-50px" }}
-                >
-                    {services.map((service, index) => (
-                        <motion.div
-                            key={index}
-                            className="service-card glass-surface glass-surface-soft rounded-2xl sm:rounded-3xl overflow-hidden hover:border-yellow-400/45 hover:shadow-[0_24px_56px_rgba(0,0,0,0.5)] transition-all duration-500 group flex flex-col md:flex-row h-auto md:h-64"
-                            variants={item}
-                        >
-                            <div className="relative w-full md:w-2/5 h-40 sm:h-48 md:h-full overflow-hidden">
-                                <Image
-                                    src={service.image}
-                                    alt={`${service.title} - Papa's Electronic Repair Shop`}
-                                    fill
-                                    style={{ objectFit: "cover" }}
-                                    className="group-hover:scale-110 transition duration-700 filter brightness-75 group-hover:brightness-100"
-                                />
-                            </div>
+        <motion.div
+          className="grid grid-cols-1 gap-4 min-[390px]:gap-5 md:grid-cols-2 sm:gap-8 lg:gap-10"
+          variants={container}
+          initial="hidden"
+          whileInView="show"
+          viewport={{ once: true, margin: "-50px" }}
+        >
+          {services.map((service, index) => (
+            <motion.div
+              key={index}
+              className="service-card glass-surface glass-surface-mid theme-panel group flex h-auto flex-col overflow-hidden md:h-72 md:flex-row"
+              variants={item}
+            >
+              <div className="relative h-36 w-full overflow-hidden min-[390px]:h-40 md:h-full md:w-2/5">
+                <Image
+                  src={service.image}
+                  alt={`${service.title} - Papa's Electronic Repair Shop`}
+                  fill
+                  style={{ objectFit: "cover" }}
+                  className="brightness-[0.72] transition duration-700 group-hover:scale-105 group-hover:brightness-[0.9]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#090d12]/88 via-[#090d12]/28 to-transparent" />
+              </div>
 
-                            <div className="p-5 sm:p-8 md:w-3/5 flex flex-col justify-center">
-                                <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 sm:mb-3 font-display group-hover:text-yellow-300 transition">{service.title}</h3>
-                                <p className="text-gray-200/90 leading-relaxed text-sm sm:text-base">
-                                    {service.desc}
-                                </p>
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
-            </div>
-        </section>
-    );
+              <div className="flex flex-col justify-center p-5 min-[390px]:p-6 sm:p-8 md:w-3/5">
+                <p className="text-xs font-bold uppercase tracking-[0.22em] text-[var(--accent-cyan-soft)]">
+                  Service {index + 1}
+                </p>
+                <h3 className="mt-2.5 font-display text-[1.35rem] font-bold leading-tight text-[var(--foreground)] transition group-hover:text-[var(--accent-copper-strong)] min-[390px]:text-2xl sm:mt-3 sm:text-[1.8rem]">
+                  {service.title}
+                </h3>
+                <p className="mt-3 text-sm leading-[1.65] text-[var(--foreground-muted)] min-[390px]:leading-7 sm:mt-4 sm:text-base">
+                  {service.desc}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+    </section>
+  );
 }

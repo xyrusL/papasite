@@ -4,77 +4,82 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFileContract, faScrewdriverWrench, faMedal, faTruckFast, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 export default function Terms() {
-    return (
-        <main className="min-h-screen text-gray-300 py-32 px-4 sm:px-6 lg:px-8 font-sans relative overflow-hidden">
-            {/* Background Accent */}
-            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-blue-600/10 rounded-full blur-3xl translate-y-1/2 translate-x-1/2"></div>
-            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-yellow-500/10 rounded-full blur-3xl -translate-y-1/2 -translate-x-1/2"></div>
+  return (
+    <main className="legal-shell font-sans text-[var(--foreground)]">
+      <motion.div
+        className="relative z-10 mx-auto max-w-4xl"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.8 }}
+      >
+        <div className="mb-10 text-center sm:mb-12">
+          <motion.div
+            initial={{ scale: 0 }}
+            animate={{ scale: 1 }}
+            transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
+            className="legal-icon-chip mx-auto mb-6"
+          >
+            <FontAwesomeIcon icon={faFileContract} className="text-4xl" />
+          </motion.div>
+          <p className="section-eyebrow justify-center">Terms</p>
+          <h1 className="mt-4 font-display text-4xl font-bold tracking-[-0.04em] text-[var(--foreground)] min-[390px]:text-5xl sm:mt-5 sm:text-6xl">
+            Terms of Service
+          </h1>
+          <p className="mx-auto mt-3 max-w-2xl text-base leading-7 text-[var(--foreground-muted)] sm:mt-4 sm:text-lg sm:leading-8">
+            Clear service expectations so your repair experience stays smooth, transparent, and
+            professional.
+          </p>
+        </div>
 
-            <motion.div
-                className="max-w-4xl mx-auto relative z-10"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8 }}
-            >
-                <div className="mb-12 text-center">
-                    <motion.div
-                        initial={{ scale: 0 }}
-                        animate={{ scale: 1 }}
-                        transition={{ type: "spring", stiffness: 200, delay: 0.2 }}
-                        className="w-20 h-20 mx-auto bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-blue-500/20"
-                    >
-                        <FontAwesomeIcon icon={faFileContract} className="text-white text-4xl" />
-                    </motion.div>
-                    <h1 className="text-5xl sm:text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-white to-gray-400 mb-4 font-display">Terms of Service</h1>
-                    <p className="text-xl text-gray-400 max-w-2xl mx-auto">Guidelines to ensure a smooth and professional repair experience.</p>
-                </div>
+        <div className="glass-surface glass-surface-strong legal-card space-y-10 sm:p-12">
+          <section className="flex flex-col items-start gap-4 sm:flex-row sm:gap-5">
+            <div className="glass-surface glass-surface-soft mt-1 shrink-0 rounded-2xl p-3 text-[var(--accent-copper-strong)]">
+              <FontAwesomeIcon icon={faScrewdriverWrench} className="text-xl" />
+            </div>
+            <div>
+              <h2 className="font-display text-xl font-bold text-[var(--foreground)] min-[390px]:text-2xl">Service and Diagnostics</h2>
+              <p className="mt-2.5 text-base leading-7 text-[var(--foreground-muted)] sm:mt-3 sm:text-lg sm:leading-8">
+                All units are subject to an initial diagnostic check. We provide an estimated cost
+                before proceeding with major repairs so you can decide with full context.
+              </p>
+            </div>
+          </section>
 
-                <div className="glass-surface glass-surface-mid p-8 sm:p-12 rounded-3xl space-y-10 group hover:border-white/20 transition-colors duration-500">
+          <section className="flex flex-col items-start gap-4 sm:flex-row sm:gap-5">
+            <div className="glass-surface glass-surface-soft mt-1 shrink-0 rounded-2xl p-3 text-[var(--accent-cyan-soft)]">
+              <FontAwesomeIcon icon={faMedal} className="text-xl" />
+            </div>
+            <div>
+              <h2 className="font-display text-xl font-bold text-[var(--foreground)] min-[390px]:text-2xl">Service Warranty</h2>
+              <p className="mt-2.5 text-base leading-7 text-[var(--foreground-muted)] sm:mt-3 sm:text-lg sm:leading-8">
+                We provide a service warranty based on the repair type and work performed. Warranty
+                details are discussed per job, and warranty becomes void if the warranty seal is
+                broken.
+              </p>
+            </div>
+          </section>
 
-                    <section className="flex gap-6 items-start">
-                        <div className="glass-surface glass-surface-soft p-3 rounded-lg mt-1 shrink-0">
-                            <FontAwesomeIcon icon={faScrewdriverWrench} className="text-white text-xl" />
-                        </div>
-                        <div>
-                            <h2 className="text-2xl font-bold text-white mb-3 font-display">Service & Diagnostics</h2>
-                            <p className="text-lg leading-relaxed text-gray-400">
-                                All units are subject to an initial diagnostic check. We believe in transparency—we will provide an estimated cost before proceeding with any major repairs.
-                            </p>
-                        </div>
-                    </section>
+          <section className="flex flex-col items-start gap-4 sm:flex-row sm:gap-5">
+            <div className="glass-surface glass-surface-soft mt-1 shrink-0 rounded-2xl p-3 text-[var(--accent-copper-strong)]">
+              <FontAwesomeIcon icon={faTruckFast} className="text-xl" />
+            </div>
+            <div>
+              <h2 className="font-display text-xl font-bold text-[var(--foreground)] min-[390px]:text-2xl">Home Service</h2>
+              <p className="mt-2.5 text-base leading-7 text-[var(--foreground-muted)] sm:mt-3 sm:text-lg sm:leading-8">
+                Can&apos;t bring your unit to the shop? We offer convenient home service repairs
+                within Quezon City and nearby areas so diagnostics and service can come to you.
+              </p>
+            </div>
+          </section>
+        </div>
 
-                    <section className="flex gap-6 items-start">
-                        <div className="glass-surface glass-surface-soft p-3 rounded-lg mt-1 shrink-0">
-                            <FontAwesomeIcon icon={faMedal} className="text-yellow-500 text-xl" />
-                        </div>
-                        <div>
-                            <h2 className="text-2xl font-bold text-white mb-3 font-display">Service Warranty</h2>
-                            <p className="text-lg leading-relaxed text-gray-400">
-                                We provide a service warranty for our repairs. The specific coverage and duration will be discussed and agreed upon with the customer based on the repair type. <span className="text-yellow-500 font-bold">Warranty is void if the warranty seal is broken.</span>
-                            </p>
-                        </div>
-                    </section>
-
-                    <section className="flex gap-6 items-start">
-                        <div className="glass-surface glass-surface-soft p-3 rounded-lg mt-1 shrink-0">
-                            <FontAwesomeIcon icon={faTruckFast} className="text-red-500 text-xl" />
-                        </div>
-                        <div>
-                            <h2 className="text-2xl font-bold text-white mb-3 font-display">Home Service</h2>
-                            <p className="text-lg leading-relaxed text-gray-400">
-                                Can&apos;t bring your unit to the shop? We offer convenient <strong className="text-white">Home Service</strong> repairs within Quezon City and nearby areas. Schedule a visit and let us bring the repair shop to you!
-                            </p>
-                        </div>
-                    </section>
-                </div>
-
-                <div className="mt-12 text-center">
-                    <Link href="/" className="glass-focus glass-surface glass-surface-soft glass-pill inline-flex items-center gap-2 text-white hover:text-yellow-300 transition group font-bold tracking-wide text-lg px-8 py-3">
-                        <FontAwesomeIcon icon={faArrowLeft} className="group-hover:-translate-x-1 transition-transform" />
-                        Back to Home
-                    </Link>
-                </div>
-            </motion.div>
-        </main>
-    );
+        <div className="mt-10 text-center sm:mt-12">
+          <Link href="/" className="glass-focus button-secondary group inline-flex max-w-sm">
+            <FontAwesomeIcon icon={faArrowLeft} className="transition-transform group-hover:-translate-x-1" />
+            Back to Home
+          </Link>
+        </div>
+      </motion.div>
+    </main>
+  );
 }

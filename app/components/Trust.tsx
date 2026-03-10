@@ -4,87 +4,101 @@ import { faMapMarkerAlt, faCheckCircle, faUserShield } from "@fortawesome/free-s
 import * as motion from "framer-motion/client";
 
 export default function Trust() {
-    return (
-        <section id="trust" className="py-24 border-t border-white/10 text-white relative overflow-hidden">
-            {/* Decorative background element */}
-            <div className="absolute top-0 right-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+  const trustItems = [
+    {
+      icon: faMapMarkerAlt,
+      title: "Wide Reach",
+      desc: (
+        <>
+          Servicing clients across <span className="text-[var(--foreground)] font-bold">Quezon City</span> and{" "}
+          <span className="text-[var(--foreground)] font-bold">Rizal</span>.
+        </>
+      ),
+      sub: "Montinola Compound, Accountant Street, Sauyo, Quezon City",
+    },
+    {
+      icon: faUserShield,
+      title: "Trusted Service",
+      desc: "Proven track record since 2021. Marami nang napagawa, marami nang natuwa.",
+      sub: null,
+    },
+    {
+      icon: faCheckCircle,
+      title: "Expert Technicians",
+      desc: "Experienced sa iba't ibang klase ng electronics, from TVs and fans to more complex circuit issues.",
+      sub: null,
+    },
+  ];
 
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <div className="text-center mb-20">
-                    <motion.h2
-                        className="text-4xl sm:text-5xl font-bold text-white mb-6"
-                        initial={{ opacity: 0, scale: 0.95 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.5 }}
-                    >
-                        Trusted by Many
-                    </motion.h2>
-                    <motion.p
-                        className="text-gray-400 text-xl"
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.2, duration: 0.5 }}
-                    >
-                        From Quezon City to Rizal, sagot namin kayo!
-                    </motion.p>
+  return (
+    <section id="trust" className="relative overflow-hidden px-4 py-16 sm:px-6 sm:py-24 lg:px-8">
+      <div className="absolute right-0 top-0 hidden h-80 w-80 translate-x-1/3 -translate-y-1/3 rounded-full bg-[rgb(199_100_67_/_0.08)] blur-3xl md:block" />
+
+      <div className="relative z-10 mx-auto max-w-7xl">
+        <div className="section-heading">
+          <motion.span
+            className="section-eyebrow"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Why locals trust us
+          </motion.span>
+          <motion.h2
+            className="section-title"
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            Credible service, practical repairs, and local coverage you can count on.
+          </motion.h2>
+          <motion.p
+            className="section-copy"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2, duration: 0.5 }}
+          >
+            From Quezon City to Rizal, we aim for work that feels reliable before, during, and
+            after the repair.
+          </motion.p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-4 min-[390px]:gap-5 md:grid-cols-3 md:gap-6">
+          {trustItems.map((item, index) => (
+            <motion.div
+              key={index}
+              className="service-card glass-surface glass-surface-mid theme-panel group relative overflow-hidden p-6 min-[390px]:p-7 md:p-10"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.16, duration: 0.5 }}
+            >
+              <div className="absolute right-0 top-0 hidden h-28 w-28 -translate-y-8 translate-x-8 rounded-full bg-[rgb(87_191_210_/_0.08)] transition-transform duration-700 group-hover:scale-150 sm:block" />
+
+              <div className="relative z-10">
+                <div className="inline-flex h-12 w-12 items-center justify-center rounded-[1rem] border border-[color:rgb(199_100_67_/_0.18)] bg-[rgb(199_100_67_/_0.1)] text-xl text-[var(--accent-copper-strong)] transition duration-300 group-hover:scale-105 sm:h-14 sm:w-14 sm:rounded-2xl sm:text-2xl">
+                  <FontAwesomeIcon icon={item.icon} />
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {[
-                        {
-                            icon: faMapMarkerAlt,
-                            title: "Wide Reach",
-                            desc: (
-                                <>
-                                    Servicing clients all over <span className="text-white font-bold">Quezon City</span> and <span className="text-white font-bold">Rizal</span>.
-                                </>
-                            ),
-                            sub: "23 Chestnut Ext, Quezon City, Philippines, 1121"
-                        },
-                        {
-                            icon: faUserShield,
-                            title: "Trusted Service",
-                            desc: "Proven track record since 2021. Marami nang napagawa, marami nang natuwa!",
-                            sub: null
-                        },
-                        {
-                            icon: faCheckCircle,
-                            title: "Expert Technicians",
-                            desc: "Experienced sa iba't ibang klase ng electronics. TV, Electric Fan, atbp.",
-                            sub: null
-                        }
-                    ].map((item, index) => (
-                        <motion.div
-                            key={index}
-                            className="service-card glass-surface glass-surface-mid p-8 md:p-10 rounded-3xl hover:border-yellow-500/50 transition-all duration-500 hover:shadow-[0_0_40px_rgba(234,179,8,0.15)] group relative overflow-hidden"
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
-                            transition={{ delay: index * 0.2, duration: 0.5 }}
-                        >
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-yellow-500/10 rounded-bl-full -mr-8 -mt-8 transition-transform group-hover:scale-150 duration-700"></div>
-
-                            <div className="relative z-10">
-                                <div className="text-yellow-500 text-5xl mb-6 group-hover:scale-110 transition duration-300 inline-block drop-shadow-glow">
-                                    <FontAwesomeIcon icon={item.icon} />
-                                </div>
-                                <h3 className="text-2xl font-bold mb-3 text-white group-hover:text-yellow-400 transition font-display tracking-wide">{item.title}</h3>
-                                <p className="text-gray-400 mb-6 leading-relaxed text-lg">
-                                    {item.desc}
-                                </p>
-                                {item.sub && (
-                                    <div className="border-t border-white/10 pt-4 mt-auto">
-                                        <p className="text-sm text-gray-500 uppercase tracking-wider mb-1">Location</p>
-                                        <p className="text-gray-300 font-medium">{item.sub}</p>
-                                    </div>
-                                )}
-                            </div>
-                        </motion.div>
-                    ))}
-                </div>
-            </div>
-        </section>
-    );
+                <h3 className="mt-5 font-display text-[1.35rem] font-bold tracking-wide text-[var(--foreground)] transition group-hover:text-[var(--accent-copper-strong)] min-[390px]:text-2xl sm:mt-6">
+                  {item.title}
+                </h3>
+                <p className="mt-3 text-sm leading-7 text-[var(--foreground-muted)] min-[390px]:text-base min-[390px]:leading-8 sm:mt-4">{item.desc}</p>
+                {item.sub && (
+                  <div className="mt-6 border-t border-white/8 pt-4 sm:mt-8 sm:pt-5">
+                    <p className="text-xs font-bold uppercase tracking-[0.22em] text-[var(--accent-cyan-soft)]">
+                      Location
+                    </p>
+                    <p className="mt-2 text-sm leading-7 text-[var(--foreground-soft)]">{item.sub}</p>
+                  </div>
+                )}
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
 }

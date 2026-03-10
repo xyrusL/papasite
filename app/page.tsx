@@ -15,7 +15,7 @@ export default function Home() {
     telephone: "+63 977 607 4426",
     address: {
       "@type": "PostalAddress",
-      streetAddress: "23 Chestnut Ext",
+      streetAddress: "Montinola Compound, Accountant Street, Sauyo",
       addressLocality: "Quezon City",
       addressRegion: "Metro Manila",
       addressCountry: "PH"
@@ -24,7 +24,7 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen text-white font-sans selection:bg-yellow-500/30">
+    <main className="min-h-screen font-sans text-[var(--foreground)]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
