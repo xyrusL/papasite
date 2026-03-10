@@ -1,6 +1,6 @@
- "use client";
+"use client";
 
-import React, { useState, useRef, useEffect } from "react";
+import { useEffect, useRef, useState } from "react";
 import * as motion from "framer-motion/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlay, faPause, faForward, faBackward, faShuffle, faDownload, faMusic, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
@@ -208,83 +208,8 @@ export default function MusicPlayer() {
         nextSong();
     };
 
-    // CSS for the spinning animation and custom scrollbar
-    const customStyles = `
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0; }
-      50% { transform: translateY(-20px) rotate(10deg); opacity: 1; }
-    }
-    .spin-animation {
-      animation: spin 4s linear infinite;
-    }
-    .float-animation {
-       animation: float 3s ease-in-out infinite;
-    }
-    .custom-scrollbar::-webkit-scrollbar {
-      width: 6px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-track {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 10px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb {
-      background: rgba(255, 255, 255, 0.2);
-      border-radius: 10px;
-    }
-    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-      background: rgba(199, 100, 67, 0.5);
-    }
-    /* Mobile and small-device hardening */
-    @supports (padding: max(0px)) {
-      .music-shell {
-        padding-top: max(1rem, env(safe-area-inset-top));
-        padding-left: max(1rem, env(safe-area-inset-left));
-        padding-right: max(1rem, env(safe-area-inset-right));
-        padding-bottom: max(1rem, env(safe-area-inset-bottom));
-      }
-    }
-    @media (max-width: 640px) {
-      .music-header-title {
-        font-size: 1.9rem;
-        line-height: 1.12;
-      }
-      .music-player-card {
-        border-radius: 1.5rem;
-      }
-      .music-queue-card {
-        max-height: 360px;
-      }
-    }
-    @media (max-width: 420px) {
-      .music-shell {
-        padding-left: 0.75rem;
-        padding-right: 0.75rem;
-      }
-      .music-header-title {
-        font-size: 1.6rem;
-      }
-      .music-player-card {
-        padding: 1.1rem 0.95rem 1.5rem 0.95rem !important;
-      }
-      .music-controls {
-        gap: 0.35rem;
-      }
-      .music-center-controls {
-        gap: 0.7rem;
-      }
-      .music-queue-card {
-        max-height: 320px;
-      }
-    }
-  `;
-
     return (
         <main className="music-shell min-h-screen relative overflow-hidden p-3 font-sans text-[var(--foreground)] min-[390px]:p-4 sm:p-6 lg:p-8 lg:pt-16">
-            <style>{customStyles}</style>
             {/* Background Effects */}
             <div className="pointer-events-none absolute left-1/2 top-1/2 h-[220px] w-[220px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[rgb(199_100_67_/_0.1)] blur-[44px] min-[390px]:h-[300px] min-[390px]:w-[300px] min-[390px]:blur-[60px] sm:h-[600px] sm:w-[600px] sm:blur-[100px]"></div>
             <div className="pointer-events-none absolute right-0 top-0 h-[140px] w-[140px] rounded-full bg-[rgb(87_191_210_/_0.09)] blur-[28px] min-[390px]:h-[200px] min-[390px]:w-[200px] min-[390px]:blur-[40px] sm:h-[400px] sm:w-[400px] sm:blur-[80px]"></div>
