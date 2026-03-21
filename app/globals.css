@@ -292,6 +292,15 @@ a {
   background: rgb(199 100 67 / 0.5);
 }
 
+.music-queue-card {
+  overflow-x: hidden;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
+  scroll-behavior: smooth;
+}
+
 @supports (padding: max(0px)) {
   .music-shell {
     padding-top: max(1rem, env(safe-area-inset-top));

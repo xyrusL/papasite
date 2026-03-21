@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import * as motion from "framer-motion/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay, faPause, faForward, faBackward, faShuffle, faDownload, faMusic, faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faPause, faForward, faBackward, faShuffle, faDownload, faMusic, faArrowLeft, faChevronUp, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -107,8 +107,26 @@ export default function MusicPlayer() {
     const [autoPlay, setAutoPlay] = useState(false); // Default to false as requested
     const [progress, setProgress] = useState(0);
     const audioRef = useRef<HTMLAudioElement>(null);
+    const queueRef = useRef<HTMLDivElement>(null);
+    const queueItemRefs = useRef<Array<HTMLDivElement | null>>([]);
+    const [canScrollUp, setCanScrollUp] = useState(false);
+    const [canScrollDown, setCanScrollDown] = useState(false);
 
     const currentSong = songs[currentSongIndex];
+
+    const syncQueueScrollState = () => {
+        const queue = queueRef.current;
+
+        if (!queue) {
+            setCanScrollUp(false);
+            setCanScrollDown(false);
+            return;
+        }
+
+        const maxScrollTop = queue.scrollHeight - queue.clientHeight;
+        setCanScrollUp(queue.scrollTop > 4);
+        setCanScrollDown(maxScrollTop - queue.scrollTop > 4);
+    };
 
     useEffect(() => {
         if (audioRef.current) {
@@ -207,6 +225,52 @@ export default function MusicPlayer() {
     const handleEnded = () => {
         nextSong();
     };
+
+    const scrollQueueBy = (direction: "up" | "down") => {
+        const queue = queueRef.current;
+
+        if (!queue) {
+            return;
+        }
+
+        const scrollAmount = Math.max(queue.clientHeight * 0.7, 120);
+        queue.scrollBy({
+            top: direction === "down" ? scrollAmount : -scrollAmount,
+            behavior: "smooth"
+        });
+    };
+
+    useEffect(() => {
+        const queue = queueRef.current;
+
+        if (!queue) {
+            return;
+        }
+
+        const handleQueueStateChange = () => syncQueueScrollState();
+        const frame = window.requestAnimationFrame(handleQueueStateChange);
+        queue.addEventListener("scroll", handleQueueStateChange, { passive: true });
+        window.addEventListener("resize", handleQueueStateChange);
+
+        return () => {
+            window.cancelAnimationFrame(frame);
+            queue.removeEventListener("scroll", handleQueueStateChange);
+            window.removeEventListener("resize", handleQueueStateChange);
+        };
+    }, []);
+
+    useEffect(() => {
+        queueItemRefs.current[currentSongIndex]?.scrollIntoView({
+            block: "nearest",
+            behavior: "smooth"
+        });
+
+        const frame = window.requestAnimationFrame(() => {
+            syncQueueScrollState();
+        });
+
+        return () => window.cancelAnimationFrame(frame);
+    }, [currentSongIndex]);
 
     return (
         <main className="music-shell min-h-screen relative overflow-hidden p-3 font-sans text-[var(--foreground)] min-[390px]:p-4 sm:p-6 lg:p-8 lg:pt-16">
@@ -348,11 +412,38 @@ export default function MusicPlayer() {
                     </button>
                 </div>
 
-                <div className="music-queue-card music-glass-card glass-surface glass-surface-soft custom-scrollbar flex-1 overflow-y-auto rounded-[1.35rem] p-1.5 min-[390px]:rounded-2xl min-[390px]:p-2 max-h-[280px] min-[390px]:max-h-[300px] lg:max-h-[500px]">
+                <div className="mb-2 flex items-center justify-end gap-2 px-1 min-[390px]:mb-3 min-[390px]:px-2">
+                    <button
+                        type="button"
+                        onClick={() => scrollQueueBy("up")}
+                        disabled={!canScrollUp}
+                        aria-label="Scroll playlist up"
+                        className="glass-focus inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[var(--foreground-soft)] transition disabled:cursor-not-allowed disabled:opacity-35"
+                    >
+                        <FontAwesomeIcon icon={faChevronUp} className="text-xs" />
+                    </button>
+                    <button
+                        type="button"
+                        onClick={() => scrollQueueBy("down")}
+                        disabled={!canScrollDown}
+                        aria-label="Scroll playlist down"
+                        className="glass-focus inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[var(--foreground-soft)] transition disabled:cursor-not-allowed disabled:opacity-35"
+                    >
+                        <FontAwesomeIcon icon={faChevronDown} className="text-xs" />
+                    </button>
+                </div>
+
+                <div
+                    ref={queueRef}
+                    className="music-queue-card music-glass-card glass-surface glass-surface-soft custom-scrollbar flex-1 overflow-y-auto rounded-[1.35rem] p-1.5 min-[390px]:rounded-2xl min-[390px]:p-2 max-h-[280px] min-[390px]:max-h-[300px] lg:max-h-[500px]"
+                >
                     <div className="space-y-1">
                         {songs.map((song, index) => (
                             <div
                                 key={index}
+                                ref={(element) => {
+                                    queueItemRefs.current[index] = element;
+                                }}
                                 onClick={() => handleSongSelect(index)}
                                 className={`glass-focus group flex cursor-pointer items-center gap-2.5 rounded-lg border p-2.5 min-[390px]:gap-3 min-[390px]:p-3 transition-all duration-300 ${currentSongIndex === index ? 'border-[rgb(199_100_67_/_0.28)] bg-[rgb(255_255_255_/_0.08)] shadow-md' : 'border-transparent hover:bg-white/5'}`}
                             >
