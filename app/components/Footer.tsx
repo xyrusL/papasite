@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
+import { faEnvelope, faMessage, faPhoneVolume } from "@fortawesome/free-solid-svg-icons";
 import * as motion from "framer-motion/client";
 
 export default function Footer() {
@@ -25,7 +26,14 @@ export default function Footer() {
               QC and Rizal with dependable electronics repair and honest updates.
             </p>
             <div className="mt-5 flex flex-col items-stretch gap-3 text-base font-semibold text-[var(--foreground-soft)] min-[390px]:items-center lg:items-start">
-              <span className="theme-pill">Call/Text: 0977-607-4426</span>
+              <span className="theme-pill inline-flex items-center gap-2">
+                <FontAwesomeIcon icon={faPhoneVolume} className="text-[var(--accent-cyan-soft)]" />
+                0977-607-4426
+              </span>
+              <span className="theme-pill inline-flex items-center gap-2 break-all">
+                <FontAwesomeIcon icon={faEnvelope} className="text-[var(--accent-copper-strong)]" />
+                menardpapa5@gmail.com
+              </span>
               <span className="theme-pill">TV, appliance, and electronics repair</span>
             </div>
           </div>
@@ -41,7 +49,16 @@ export default function Footer() {
               Message us on Facebook
             </a>
             <a href="tel:+639776074426" className="glass-focus button-secondary">
+              <FontAwesomeIcon icon={faPhoneVolume} className="h-5 w-5 text-[var(--accent-cyan-soft)]" />
               Call 0977-607-4426
+            </a>
+            <a href="sms:+639776074426" className="glass-focus button-secondary">
+              <FontAwesomeIcon icon={faMessage} className="h-5 w-5 text-[var(--accent-copper-strong)]" />
+              Text 0977-607-4426
+            </a>
+            <a href="mailto:menardpapa5@gmail.com" className="glass-focus button-secondary">
+              <FontAwesomeIcon icon={faEnvelope} className="h-5 w-5 text-[var(--accent-copper-strong)]" />
+              menardpapa5@gmail.com
             </a>
           </div>
         </div>

@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { faPhoneVolume, faShieldHeart, faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faMessage, faPhoneVolume, faShieldHeart, faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
 import * as motion from "framer-motion/client";
 
 export default function Hero() {
@@ -96,6 +96,10 @@ export default function Hero() {
             <FontAwesomeIcon icon={faPhoneVolume} className="h-5 w-5 text-[var(--accent-cyan-soft)]" />
             Call 0977-607-4426
           </a>
+          <a href="mailto:menardpapa5@gmail.com" className="glass-focus button-secondary">
+            <FontAwesomeIcon icon={faEnvelope} className="h-5 w-5 text-[var(--accent-copper-strong)]" />
+            menardpapa5@gmail.com
+          </a>
         </motion.div>
 
         <motion.div
@@ -121,9 +125,47 @@ export default function Hero() {
               <p className="mt-2 text-[1.65rem] font-bold tracking-[0.03em] text-[var(--foreground)] min-[390px]:text-3xl sm:mt-3">
                 0977-607-4426
               </p>
+              <a
+                href="mailto:menardpapa5@gmail.com"
+                className="mt-1 inline-block text-sm font-semibold text-[var(--accent-cyan-soft)] transition hover:text-[var(--foreground)]"
+              >
+                menardpapa5@gmail.com
+              </a>
               <p className="mt-2 text-sm leading-6 text-[var(--foreground-muted)]">
                 Message or call for diagnostics, repair schedules, and home service visits.
               </p>
+              <div className="mt-4 flex items-center gap-2">
+                <a
+                  href="tel:+639776074426"
+                  aria-label="Call Papa's Repair"
+                  className="glass-focus inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[var(--accent-cyan-soft)] transition hover:border-[rgb(87_191_210_/_0.3)] hover:bg-white/10 hover:text-[var(--foreground)]"
+                >
+                  <FontAwesomeIcon icon={faPhoneVolume} className="text-sm" />
+                </a>
+                <a
+                  href="sms:+639776074426"
+                  aria-label="Text Papa's Repair"
+                  className="glass-focus inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[var(--accent-copper-strong)] transition hover:border-[rgb(199_100_67_/_0.3)] hover:bg-white/10 hover:text-[var(--foreground)]"
+                >
+                  <FontAwesomeIcon icon={faMessage} className="text-sm" />
+                </a>
+                <a
+                  href="mailto:menardpapa5@gmail.com"
+                  aria-label="Email Papa's Repair"
+                  className="glass-focus inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[var(--accent-copper-strong)] transition hover:border-[rgb(199_100_67_/_0.3)] hover:bg-white/10 hover:text-[var(--foreground)]"
+                >
+                  <FontAwesomeIcon icon={faEnvelope} className="text-sm" />
+                </a>
+                <a
+                  href="https://www.facebook.com/papaelectronicrepair"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Open Papa's Repair on Facebook"
+                  className="glass-focus inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-white/5 text-[var(--accent-cyan-soft)] transition hover:border-[rgb(87_191_210_/_0.3)] hover:bg-white/10 hover:text-[var(--foreground)]"
+                >
+                  <FontAwesomeIcon icon={faFacebook} className="text-sm" />
+                </a>
+              </div>
             </div>
           </div>
         </motion.div>

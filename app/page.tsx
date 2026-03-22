@@ -13,6 +13,7 @@ export default function Home() {
     "@type": "ElectronicsRepairShop",
     name: "Papa's Electronic Repair Shop",
     telephone: "+63 977 607 4426",
+    email: "menardpapa5@gmail.com",
     address: {
       "@type": "PostalAddress",
       streetAddress: "Montinola Compound, Accountant Street, Sauyo",
