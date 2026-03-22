@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faMessage, faShieldHeart, faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faMessage, faPhoneVolume, faShieldHeart, faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
 import * as motion from "framer-motion/client";
 
 export default function Hero() {
