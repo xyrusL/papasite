@@ -131,7 +131,10 @@ export default function MusicPlayer() {
     useEffect(() => {
         if (audioRef.current) {
             if (isPlaying) {
-                audioRef.current.play().catch(e => console.log("Playback failed", e));
+                audioRef.current.play().catch(e => {
+                    console.log("Playback failed", e);
+                    setIsPlaying(false);
+                });
             } else {
                 audioRef.current.pause();
             }
@@ -141,6 +144,7 @@ export default function MusicPlayer() {
     // Handle song selection from playlist
     const handleSongSelect = (index: number) => {
         setCurrentSongIndex(index);
+        setProgress(0);
         if (autoPlay) {
             setIsPlaying(true);
         } else {
@@ -149,12 +153,20 @@ export default function MusicPlayer() {
     };
 
     const togglePlay = () => {
-        if (isPlaying) {
-            audioRef.current?.pause();
-        } else {
-            audioRef.current?.play();
+        const audio = audioRef.current;
+
+        if (!audio) {
+            return;
         }
-        setIsPlaying(!isPlaying);
+
+        if (!audio.paused) {
+            audio.pause();
+        } else {
+            audio.play().catch(e => {
+                console.log("Playback failed", e);
+                setIsPlaying(false);
+            });
+        }
     };
 
     const nextSong = () => {
@@ -464,7 +476,7 @@ export default function MusicPlayer() {
                                     <p className="truncate text-[10px] font-bold uppercase text-white/30 group-hover:text-[var(--foreground-muted)]">{song.artist}</p>
                                 </div>
 
-                                {currentSongIndex === index && (
+                                {currentSongIndex === index && isPlaying && (
                                     <div className="hidden rounded bg-[rgb(199_100_67_/_0.14)] px-1.5 py-0.5 text-[10px] font-bold text-[var(--accent-copper-strong)] min-[390px]:block">
                                         PLAYING
                                     </div>
@@ -532,6 +544,8 @@ export default function MusicPlayer() {
                 onLoadedMetadata={handleTimeUpdate}
                 onDurationChange={handleTimeUpdate}
                 onTimeUpdate={handleTimeUpdate}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
                 onEnded={handleEnded}
             />
         </main>
