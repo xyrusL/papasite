@@ -14,6 +14,7 @@ const rajdhani = Rajdhani({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://papaselectronicrepairshop.deze.me"),
+  applicationName: "Papa's Electronic Repair Shop",
   alternates: {
     canonical: "/",
   },
@@ -43,6 +44,7 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: "Papa's Electronic Repair Shop" }],
   creator: "Papa's Electronic Repair Shop",
+  publisher: "Papa's Electronic Repair Shop",
   openGraph: {
     type: "website",
     locale: "en_PH",
@@ -55,6 +57,9 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "TV Repair & Electronics Specialist | Papa's Repair Shop QC",
     description: "Trusted TV repair sa Quezon City at Rizal. Call 0977-607-4426.",
+  },
+  appleWebApp: {
+    title: "Papa's Electronic Repair Shop",
   },
   icons: {
     icon: "/icon.png",

@@ -8,6 +8,14 @@ import Footer from "./components/Footer";
 import ScrollRevealSection from "./components/ScrollRevealSection";
 
 export default function Home() {
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Papa's Electronic Repair Shop",
+    alternateName: "Papa's Repair Shop QC",
+    url: "https://papaselectronicrepairshop.deze.me/"
+  };
+
   const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "ElectronicsRepairShop",
@@ -26,6 +34,10 @@ export default function Home() {
 
   return (
     <main className="min-h-screen font-sans text-[var(--foreground)]">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
