@@ -26,14 +26,6 @@ export default function Footer() {
               QC and Rizal with dependable electronics repair and honest updates.
             </p>
             <div className="mt-5 flex flex-col items-stretch gap-3 text-base font-semibold text-[var(--foreground-soft)] min-[390px]:items-center lg:items-start">
-              <span className="theme-pill inline-flex items-center gap-2">
-                <FontAwesomeIcon icon={faPhoneVolume} className="text-[var(--accent-cyan-soft)]" />
-                0977-607-4426
-              </span>
-              <span className="theme-pill inline-flex items-center gap-2 break-all">
-                <FontAwesomeIcon icon={faEnvelope} className="text-[var(--accent-copper-strong)]" />
-                menardpapa5@gmail.com
-              </span>
               <span className="theme-pill">TV, appliance, and electronics repair</span>
             </div>
           </div>
