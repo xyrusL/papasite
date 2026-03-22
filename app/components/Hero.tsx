@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebook } from "@fortawesome/free-brands-svg-icons";
-import { faEnvelope, faMessage, faPhoneVolume, faShieldHeart, faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
+import { faEnvelope, faMessage, faShieldHeart, faScrewdriverWrench } from "@fortawesome/free-solid-svg-icons";
 import * as motion from "framer-motion/client";
 
 export default function Hero() {
@@ -91,14 +91,6 @@ export default function Hero() {
           >
             <FontAwesomeIcon icon={faFacebook} className="h-5 w-5" />
             Message Us on Facebook
-          </a>
-          <a href="tel:+639776074426" className="glass-focus button-secondary">
-            <FontAwesomeIcon icon={faPhoneVolume} className="h-5 w-5 text-[var(--accent-cyan-soft)]" />
-            Call 0977-607-4426
-          </a>
-          <a href="mailto:menardpapa5@gmail.com" className="glass-focus button-secondary">
-            <FontAwesomeIcon icon={faEnvelope} className="h-5 w-5 text-[var(--accent-copper-strong)]" />
-            menardpapa5@gmail.com
           </a>
         </motion.div>
 
